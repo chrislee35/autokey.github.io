@@ -1,8 +1,8 @@
-name: Build Autokey pages
+name: Build Autokey pages (fork preview of develop)
 on: 
   push:
     branches:
-      - master
+      - docs-overhaul
   workflow_dispatch:
 
 permissions:
@@ -21,7 +21,7 @@ jobs:
           sudo apt-get install git -y
       - name: clone and install autokey
         run: |
-          git clone https://github.com/autokey/autokey
+          git clone --branch develop https://github.com/autokey/autokey
           cd autokey
           pip install .
       - name: Install system dependencies
