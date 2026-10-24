@@ -101,7 +101,10 @@ Debian, Ubuntu and Linux Mint (.deb packages)
 
       sudo apt-get install ./autokey-common_*.deb ./autokey-gtk_*.deb
 
-   Use ``./autokey-qt_*.deb`` as well, or instead, for the Qt front end.
+   Use ``./autokey-qt_*.deb`` as well, or instead, for the Qt front end. The Qt
+   front end also needs the ``kdialog`` program. KDE Plasma includes it; on any
+   other desktop, install it too (``sudo apt-get install kdialog``), or AutoKey
+   shows an error about the missing program when it starts.
 
 The packages are built and installed in an automated test on Ubuntu 24.04 and
 26.04. They install ``xclip`` and the other dependencies for you.
@@ -112,7 +115,9 @@ The packages are built and installed in an automated test on Ubuntu 24.04 and
 - copies a udev rule to ``/etc/udev/rules.d/10-autokey.rules`` so your session
   can use ``/dev/uinput``;
 - adds the user who ran ``sudo`` to the ``input`` group;
-- installs the GNOME Shell extension, if GNOME is present.
+- installs the GNOME Shell extension, if GNOME is present. The extension stays
+  switched off until you log in again; AutoKey switches it on the first time it
+  starts.
 
 If you installed some other way (for example as root without ``sudo``), the
 installer prints the two commands you need instead. In every case you must
@@ -134,7 +139,7 @@ Install the system libraries first. On Debian and Ubuntu:
 
 For the GTK front end add ``gir1.2-gtk-3.0 gir1.2-gtksource-3.0
 gir1.2-notify-0.7 gir1.2-ayatanaappindicator3-0.1 zenity``. For the Qt front
-end add ``python3-pyqt5 python3-pyqt5.qsci python3-pyqt5.qtsvg``. On other
+end add ``python3-pyqt5 python3-pyqt5.qsci python3-pyqt5.qtsvg kdialog``. On other
 distributions install the packages that provide the same libraries; the full
 list is in ``pip-requirements.txt`` in the source tree.
 
@@ -195,7 +200,7 @@ keyboard it creates with ``uinput``. That needs three things.
       echo 'KERNEL=="uinput", SUBSYSTEM=="misc", OPTIONS+="static_node=uinput", TAG+="uaccess", GROUP="input", MODE="0660"' \
           | sudo tee /etc/udev/rules.d/10-autokey.rules
       sudo udevadm control --reload
-      sudo udevadm trigger --sysname-match='/devices/virtual/misc/uinput'
+      sudo udevadm trigger --sysname-match=uinput
 
 2. **Membership of the input group.**
 
