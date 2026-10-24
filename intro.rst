@@ -1,174 +1,135 @@
-Introduction to Autokey
+Introduction to AutoKey
 =======================
 
-This page contains a basic introduction on what AutoKey is and what it
-does.
+.. note::
 
-Glossary of AutoKey Terms
+   This documentation is for AutoKey 0.97.0 (``develop``).
+
+AutoKey is a desktop automation utility for Linux. It watches what you type and
+the shortcut keys you press, and when it sees one of your triggers it expands a
+piece of text for you or runs a Python script. It works in an X11 session, and in
+a Wayland session on GNOME or KDE Plasma.
+
+This page explains the words AutoKey uses and how its pieces fit together. To
+install it, see :doc:`install`. To start using it, see :doc:`user/first-steps`.
+
+What AutoKey does for you
 -------------------------
 
-We are including the glossary of AutoKey terms at the beginning of the
-users manual because understanding our definitions of the terms, as they
-apply to AutoKey, will make understanding the AutoKey much easier.
+AutoKey can save time and reduce typing and strain on your hands.
 
-- **abbreviation** is a short sequence of letters, numbers or symbols
-  that when typed will trigger AutoKey to do something (run a script,
-  insert a phrase, display a menu).
-- **AutoKey icon** - the letter "A" icon that appears in the
-  notification area or system tray when AutoKey is started. Clicking on
-  the icon opens a pop-up menu that gives you access to AutoKey's
-  features. The icon can be changed - either by an icon theme or in the
-  preferences menu.
-- **folders** are displayed in the left column of the main window. They
-  can contain sub-folders, scripts and phrases. You can add sub-folders
-  or create new folders as needed.
-- **hotkey** - a key or combination of keys that, when pressed, will
-  trigger AutoKey to do something; run a script, insert a phrase or
-  display a menu. A hotkey can be created using any key on the keyboard
-  (within reason), with or without one or more modifier keys. The
-  modifier keys are Shift, Control, Alt and Super (a.k.a. Windows).
-- **phrase** - a text string or block of text. Phrases can include one
-  or more scripts and their output can add content to the text (ex:
-  current time) or modify it in other ways (ex: position, format,
-  footnotes, etc.).
-- **script** - a small program written in Python. It can start other
-  programs, send commands to a running window, re-size your window,
-  reposition your cursor after execution, etc.
-- **tray menu** - pop-up menu that appears when the AutoKey icon is
-  clicked.
-- **triggers** - hotkeys and typed abbreviations.
-- **macro** - A special ``<tag>`` that can be placed inside a phrase,
-  turning the phrase into a dynamic phrase. Upon phrase expansion, the
-  tags are replaced with text. For example, the ``date`` tag is
-  replaced with the current date and time. For details, see 
-  `Create dynamic phrases by using macros as placeholders 
-  <https://github.com/autokey/autokey/wiki/Phrases#create-dynamic-phrases-by-using-macros-as-placeholders>`__.
+- There are things you type again and again: your address, your company name, a
+  signature. An abbreviation can expand a few characters into any block of text.
+- For programmers, text insertion can add code tags, dividers and boilerplate at
+  the cursor.
+- If you use software that needs long key combinations, AutoKey can send them with
+  one keystroke.
+- A script can do more than insert text. It can work with several running
+  programs, move text between them, start and close them, and send keyboard and
+  mouse input to them.
+- AutoKey works across applications. You set a phrase, script or abbreviation up
+  once, and it works everywhere, unless you limit it to chosen windows.
 
-How are things organized?
--------------------------
+Glossary
+--------
 
-Each AutoKey phrase and script consists of two files, a file containing
-the body of the script or phrase and a sidecar file containing the
-metadata for the script or phrase. You have to make sure you copy/move
-the pairs together or they will not work.
+abbreviation
+   A short sequence of letters, numbers or symbols that, when typed, triggers
+   AutoKey to do something: expand a phrase, run a script or show a menu.
 
-Scripts: my_script.py / .my_script.json
+hotkey
+   A key or combination of keys that, when pressed, triggers AutoKey to do
+   something. A hotkey can be any key on the keyboard, with or without modifier
+   keys (Shift, Control, Alt, Super, and others). You can ask for the left or the
+   right modifier key specifically.
 
-Phrases: my_phrase.txt / .my_phrase.json
+trigger
+   An abbreviation or a hotkey.
 
-Because the metadata file names start with a dot, they are hidden files
-by default and some copy commands like cp will miss them by default.
-rsync will get them. (Credits to Joe)
+phrase
+   A piece of text. A phrase can contain macros, which are replaced with
+   generated text when the phrase is expanded.
 
-How to "source" settings on a new computer?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+macro
+   A tag such as ``<date>`` or ``<cursor>`` inside a phrase. When the phrase is
+   expanded the tag is replaced with text, or does something, for example it
+   places the text cursor. See :doc:`user/phrases`.
 
-First, install (latest) AutoKey on the new computer and press the New
-icon, then Folder. Select the folder that contains the settings from the
-previous installation. Expect to see an empty folder from the panel on
-the left.
+script
+   A small Python program. It can send keys and mouse clicks, show dialogs, start
+   programs, move and resize windows, read and write the clipboard, and more. See
+   :doc:`scripting/guide`.
 
-Secondly, quit the current AutoKey session through its icon in the
-system tray, and start AutoKey again. Since AutoKey does not monitor its
-"directories" on the fly, restarting it necessary.
+folder
+   A group of phrases, scripts and other folders, shown in the tree on the left of
+   the main window. A folder can have a trigger and a window filter of its own.
 
-Why Would You Use AutoKey And What Does It Do For You?
-------------------------------------------------------
+window filter
+   A rule that limits a trigger to the windows you choose, or excludes the windows
+   you choose. See :doc:`user/window-filters`.
 
-AutoKey can be a huge time saver, energy saver and productivity booster
-and can also reduce the stress on your arms and hands.
+tray icon
+   The AutoKey icon in the notification area. Clicking it opens a menu with
+   AutoKey's main actions. You can hide it in the settings.
 
-Some examples:
-~~~~~~~~~~~~~~
+How things are organized
+------------------------
 
-There are certain things you type over and over; your address, your
-company name or your custom signature. AutoKey's abbreviations can
-automatically expand a few characters into any of your commonly used
-text blocks. For programmers, AutoKey's text insertion features can let
-you easily insert code tags, dividers, etc. at the cursor position.
+In the main window, folders appear in a tree on the left. Each folder contains
+phrases and scripts, and may contain more folders. The settings for the selected
+item appear on the right.
 
-If you use database, CAD/CAM, engineering or scientific software that
-require complex key combinations, AutoKey can be configured to send
-commands that will activate those features with a single keystroke.
+On disk, each phrase and script is a pair of files in the same directory:
 
-Instead of just inserting text, a script can be used to manipulate
-several different running programs, transfer text between them, start
-and close them as well as send keyboard and mouse input to them.
+.. list-table::
+   :header-rows: 1
+   :widths: 25 35 40
 
-AutoKey works across all applications. Any phrase, script or
-abbreviation can be used in multiple applications. This means you do not
-have to configure all the different applications that you use - you can
-do it once in AutoKey and it works for all your applications.
+   * - Item
+     - Content file
+     - Settings file
+   * - Phrase
+     - ``my_phrase.txt``
+     - ``my_phrase.json``
+   * - Script
+     - ``my_script.py``
+     - ``my_script.json``
+   * - Folder
+     -
+     - ``folder.json`` inside the folder
 
-AutoKey is very useful if you write or edit business documents, novels,
-documentation, articles, web blogs, programs or fill out a lot of forms.
+The settings file holds the abbreviation, hotkey, window filter and send mode.
+Keep each pair together when you copy or move files. See
+:doc:`user/configuration` for where the files are and how to back them up.
 
-What Is AutoKey and How Does It Work?
--------------------------------------
+.. note::
 
-It is a trigger or selection activated, automation utility program for
-Linux and X11. When a trigger is detected by Autokey, one of three
-things can happen; a script is activated, text is inserted at the cursor
-position or a pop-up menu is displayed allowing a script or phrase to be
-activated by selecting it.
+   Before AutoKey 0.96.0 the settings files were hidden (their names began with a
+   dot). AutoKey renames them automatically when it upgrades your configuration.
 
-AutoKey scripts can literally do almost anything that can be coded as a
-Python program. Python scripts are user created and can be shared
-between users. AutoKey includes a range of sample Python scripts, and
-there are countless Python scripting resources on-line for learning how
-to write scripts.
+How AutoKey works
+-----------------
 
-The core part of AutoKey works by sending and receiving keyboard events
-via the X server. It supports multiple ways of communicating with X and
-as such should - in theory - work with any Western keyboard layout.
-(Problems are known to exist with Russian/Mandarin/Japanese languages)
+AutoKey runs in the background and does three things.
 
-Common actions
-==============
+1. **It watches the keyboard and mouse.** On X11 it listens to input events
+   through the X server. On Wayland it reads the keyboard and mouse devices
+   directly.
+2. **It decides what to do.** It keeps a short record of what you typed (the last
+   150 characters) to recognise abbreviations, and it checks the keys you press
+   against your hotkeys. A window filter can limit where a trigger applies.
+3. **It acts.** It expands a phrase, runs a script or shows a menu. To insert text
+   it either types the characters or pastes them through the clipboard, as you
+   choose for each phrase.
 
-Adding Abbreviations
---------------------
+Typing and clipboard behavior differ a little between X11 and Wayland, and some
+keyboard layouts have known problems. :doc:`user/limitations` lists them.
 
-On the left side of the configuration window you will see a "tree" view
-of the folders/subfolders already in AutoKey.
+Where to go next
+----------------
 
-Let's first add a New Top-level folder for the abbreviations you are
-going to add:
-
-File > Create > New Top-level Folder. You can choose to create the new
-folder anywhere you wish, or you may click "Use Default" and type a
-name. This will create a new folder under the default folder.
-
-Now that we have a new folder, we can start adding abbreviations.
-
-Ensure you have the folder you want the phrase created in selected, then
-press Ctrl + N or use the menu or the right-click menu. The main menu
-option is File > Create > New Phrase. Enter a name for your phrase and
-click OK.
-
-Next press the tab key to get to the big dialog window to enter the
-contents of your phrase. Once the phrase is entered press Ctrl + Tab to
-navigate via keyboard or click on the "Set" button for "Abbreviation".
-This will bring up a "Set Abbreviation" dialog - this is where you set
-the actual abbreviation for the phrase. Leave the "Trigger on" to
-"Default." Make sure you leave "Remove typed abbreviation" checked,
-unless you want to leave the abbreviation in the document for some
-reason.
-
-In this example, we'll set the "Match phrase case to typed abbreviation"
-- this option and "Ignore case of typed abbreviation" work in concert to
-let your abbreviation expand with case sensitivity:
-
-============ ===========
-Abbreviation You See
-============ ===========
-tp           the patient
-Tp           The patient
-TP           THE PATIENT
-============ ===========
-
-Click "OK" or type Alt to accept the abbreviation settings. One last
-step - click "Save" or Control + S to save the changes to the phrase.
-
-Now, if you type the abbreviation you created in any document or window,
-it will be replaced with the phrase contents you created.
+- :doc:`install`: install AutoKey and, on Wayland, finish the setup.
+- :doc:`user/first-steps`: add a folder, a phrase with an abbreviation, a hotkey
+  and a script.
+- :doc:`user/troubleshooting` and :doc:`user/faq`, if something does not work.
+- :doc:`scripting/guide` and the :doc:`API reference <api>`, to write scripts.

@@ -1,9 +1,10 @@
 Common API
 ==========
 
-.. automodule:: autokey.scripting
-   :no-members:
-.. autoclass:: ColourData
+Types returned by some scripting functions.
+
+.. autoclass:: autokey.scripting.common.ColourData
    :members:
-.. autoclass:: DialogData
+
+.. autoclass:: autokey.scripting.common.DialogData
    :members:

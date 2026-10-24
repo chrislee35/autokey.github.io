@@ -1,12 +1,8 @@
 Engine API
 ==========
 
-.. automodule:: autokey.common
-   :no-members:
-.. automodule:: autokey.gtkapp
-   :no-members:
-.. automodule:: autokey.scripting
-   :no-members:
-.. autoclass:: Engine
+Available in scripts as ``engine``.
+
+.. autoclass:: autokey.scripting.engine.Engine
    :members:
    :exclude-members: Key, SendMode

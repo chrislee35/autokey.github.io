@@ -8,7 +8,31 @@ Welcome to AutoKey!
 ===================
 
 .. toctree::
+   :caption: Getting started
+   :maxdepth: 1
+
    intro
+   install
+
+.. toctree::
+   :caption: User guide
+   :maxdepth: 1
+
+   user/first-steps
+   user/phrases
+   user/triggers
+   user/window-filters
+   user/configuration
+   user/troubleshooting
+   user/limitations
+   user/faq
+
+.. toctree::
+   :caption: Scripting
+   :maxdepth: 1
+
+   scripting/guide
+   scripting/special-keys
    api
 
 .. only:: html

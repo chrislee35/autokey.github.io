@@ -1,30 +1,33 @@
-Autokey API
-===========
+API reference
+=============
 
-Note that the `class` paths are not relevant to everyday autokey scripting. Generally speaking you can call all of these modules directly;
-::
+This is the reference for the objects scripts can use. For a tour with examples, see
+the :doc:`scripting guide <scripting/guide>`.
 
-  keyboard.send_keys("example document")
-  clipboard.set_content("update clipboard")
+Every object is already available in a script; you do not need ``import``
+statements. The class paths shown on these pages are not needed in scripts.
 
-Is all that you need to call a method in the keyboard/clipboard API, note that you do not have to worry about import statements.
+.. code-block:: python
 
-For the Qt/Gtk pages, these are abstracted, Autokey will select the UI framework most appropriate, you only need to reference these in your scripts as;
-::
+   keyboard.send_keys("example document")
+   clipboard.fill_clipboard("update clipboard")
+   dialog.info_dialog("Info dialog", "Test info dialog")
 
-  dialog.info_dialog("Info dialog", "Test info dialog")
-  clipboard.set_content("clipboard content")
+``dialog`` is the Qt or the GTK implementation, chosen by the front end you are
+running. ``window`` is chosen by the kind of session (X11, GNOME Wayland or KDE
+Wayland). ``clipboard`` is the same everywhere. ``highlevel`` works on X11 only.
 
 .. toctree::
-   api/keyboard.rst
-   api/mouse.rst
-   api/store.rst
-   api/qtdialog.rst
-   api/qtclipboard.rst
-   api/gtkdialog.rst
-   api/gtkclipboard.rst
-   api/system.rst
-   api/window.rst
-   api/engine.rst
-   api/highlevel.rst
-   api/common.rst
+   :maxdepth: 1
+
+   api/keyboard
+   api/mouse
+   api/window
+   api/clipboard
+   api/gtkdialog
+   api/qtdialog
+   api/system
+   api/store
+   api/engine
+   api/highlevel
+   api/common

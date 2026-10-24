@@ -1,6 +1,10 @@
 HighLevel API
 =============
 
+Available in scripts as ``highlevel``. These functions find images on screen and
+click on them. They need an **X11** session. On Wayland ``highlevel`` raises an error
+that says so, and a replacement is planned for a later release.
+
 .. automodule:: autokey.scripting.highlevel
    :no-members:
 .. autoclass:: PatternNotFound
@@ -14,9 +18,3 @@ HighLevel API
 .. autofunction:: click_on_pat
 .. autofunction:: move_to_pat
 .. autofunction:: acknowledge_gnome_notification
-
-
-
-
-
-
