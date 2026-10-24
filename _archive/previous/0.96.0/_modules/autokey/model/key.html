@@ -1,0 +1,245 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>autokey.model.key &mdash; AutoKey 0.96.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/archive-banner.css?v=a835967c" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=ebd97e04"></script>
+      <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html">
+            
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../intro.html">Introduction to Autokey</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../intro.html#common-actions">Common actions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api.html">Autokey API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">AutoKey</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">autokey.model.key</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+<div class="ak-archive-banner">
+  This is the documentation for AutoKey 0.96.0, a previous version.
+  <a href="../../../../../index.html">Go to the current documentation</a>
+  or <a href="../../../../../previous/index.html">see all previous versions</a>.
+</div>
+
+           <div itemprop="articleBody">
+             
+  <h1>Source code for autokey.model.key</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Key codes enumeration</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">enum</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="c1"># Matches the special &lt;code[number]&gt; syntax, like &lt;code86&gt; for non-printable or unknown keys.</span>
+<span class="n">_code_point_re</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">"&lt;code(0|[1-9][0-9]*)&gt;"</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">UNICODE</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="Key">
+<a class="viewcode-back" href="../../../api/keyboard.html#autokey.model.key.Key">[docs]</a>
+<span class="nd">@enum</span><span class="o">.</span><span class="n">unique</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Key</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">enum</span><span class="o">.</span><span class="n">Enum</span><span class="p">):</span>
+
+    <span class="n">LEFT</span> <span class="o">=</span> <span class="s2">"&lt;left&gt;"</span>
+    <span class="n">RIGHT</span> <span class="o">=</span> <span class="s2">"&lt;right&gt;"</span>
+    <span class="n">UP</span> <span class="o">=</span> <span class="s2">"&lt;up&gt;"</span>
+    <span class="n">DOWN</span> <span class="o">=</span> <span class="s2">"&lt;down&gt;"</span>
+    <span class="n">BACKSPACE</span> <span class="o">=</span> <span class="s2">"&lt;backspace&gt;"</span>
+    <span class="n">TAB</span> <span class="o">=</span> <span class="s2">"&lt;tab&gt;"</span>
+    <span class="n">ENTER</span> <span class="o">=</span> <span class="s2">"&lt;enter&gt;"</span>
+    <span class="n">SCROLL_LOCK</span> <span class="o">=</span> <span class="s2">"&lt;scroll_lock&gt;"</span>
+    <span class="n">PRINT_SCREEN</span> <span class="o">=</span> <span class="s2">"&lt;print_screen&gt;"</span>
+    <span class="n">PAUSE</span> <span class="o">=</span> <span class="s2">"&lt;pause&gt;"</span>
+    <span class="n">MENU</span> <span class="o">=</span> <span class="s2">"&lt;menu&gt;"</span>
+    
+    <span class="c1"># Modifier keys</span>
+    <span class="n">CONTROL</span> <span class="o">=</span> <span class="s2">"&lt;ctrl&gt;"</span>
+    <span class="n">ALT</span> <span class="o">=</span> <span class="s2">"&lt;alt&gt;"</span>
+    <span class="n">ALT_GR</span> <span class="o">=</span> <span class="s2">"&lt;alt_gr&gt;"</span>
+    <span class="n">SHIFT</span> <span class="o">=</span> <span class="s2">"&lt;shift&gt;"</span>
+    <span class="n">SUPER</span> <span class="o">=</span> <span class="s2">"&lt;super&gt;"</span>
+    <span class="n">HYPER</span> <span class="o">=</span> <span class="s2">"&lt;hyper&gt;"</span>
+    <span class="n">CAPSLOCK</span> <span class="o">=</span> <span class="s2">"&lt;capslock&gt;"</span>
+    <span class="n">NUMLOCK</span> <span class="o">=</span> <span class="s2">"&lt;numlock&gt;"</span>
+    <span class="n">META</span> <span class="o">=</span> <span class="s2">"&lt;meta&gt;"</span>
+    
+    <span class="n">F1</span> <span class="o">=</span> <span class="s2">"&lt;f1&gt;"</span>
+    <span class="n">F2</span> <span class="o">=</span> <span class="s2">"&lt;f2&gt;"</span>
+    <span class="n">F3</span> <span class="o">=</span> <span class="s2">"&lt;f3&gt;"</span>
+    <span class="n">F4</span> <span class="o">=</span> <span class="s2">"&lt;f4&gt;"</span>
+    <span class="n">F5</span> <span class="o">=</span> <span class="s2">"&lt;f5&gt;"</span>
+    <span class="n">F6</span> <span class="o">=</span> <span class="s2">"&lt;f6&gt;"</span>
+    <span class="n">F7</span> <span class="o">=</span> <span class="s2">"&lt;f7&gt;"</span>
+    <span class="n">F8</span> <span class="o">=</span> <span class="s2">"&lt;f8&gt;"</span>
+    <span class="n">F9</span> <span class="o">=</span> <span class="s2">"&lt;f9&gt;"</span>
+    <span class="n">F10</span> <span class="o">=</span> <span class="s2">"&lt;f10&gt;"</span>
+    <span class="n">F11</span> <span class="o">=</span> <span class="s2">"&lt;f11&gt;"</span>
+    <span class="n">F12</span> <span class="o">=</span> <span class="s2">"&lt;f12&gt;"</span>
+    <span class="n">F13</span> <span class="o">=</span> <span class="s2">"&lt;f13&gt;"</span>
+    <span class="n">F14</span> <span class="o">=</span> <span class="s2">"&lt;f14&gt;"</span>
+    <span class="n">F15</span> <span class="o">=</span> <span class="s2">"&lt;f15&gt;"</span>
+    <span class="n">F16</span> <span class="o">=</span> <span class="s2">"&lt;f16&gt;"</span>
+    <span class="n">F17</span> <span class="o">=</span> <span class="s2">"&lt;f17&gt;"</span>
+    <span class="n">F18</span> <span class="o">=</span> <span class="s2">"&lt;f18&gt;"</span>
+    <span class="n">F19</span> <span class="o">=</span> <span class="s2">"&lt;f19&gt;"</span>
+    <span class="n">F20</span> <span class="o">=</span> <span class="s2">"&lt;f20&gt;"</span>
+    <span class="n">F21</span> <span class="o">=</span> <span class="s2">"&lt;f21&gt;"</span>
+    <span class="n">F22</span> <span class="o">=</span> <span class="s2">"&lt;f22&gt;"</span>
+    <span class="n">F23</span> <span class="o">=</span> <span class="s2">"&lt;f23&gt;"</span>
+    <span class="n">F24</span> <span class="o">=</span> <span class="s2">"&lt;f24&gt;"</span>
+    <span class="n">F25</span> <span class="o">=</span> <span class="s2">"&lt;f25&gt;"</span>
+    <span class="n">F26</span> <span class="o">=</span> <span class="s2">"&lt;f26&gt;"</span>
+    <span class="n">F27</span> <span class="o">=</span> <span class="s2">"&lt;f27&gt;"</span>
+    <span class="n">F28</span> <span class="o">=</span> <span class="s2">"&lt;f28&gt;"</span>
+    <span class="n">F29</span> <span class="o">=</span> <span class="s2">"&lt;f29&gt;"</span>
+    <span class="n">F30</span> <span class="o">=</span> <span class="s2">"&lt;f30&gt;"</span>
+    <span class="n">F31</span> <span class="o">=</span> <span class="s2">"&lt;f31&gt;"</span>
+    <span class="n">F32</span> <span class="o">=</span> <span class="s2">"&lt;f32&gt;"</span>
+    <span class="n">F33</span> <span class="o">=</span> <span class="s2">"&lt;f33&gt;"</span>
+    <span class="n">F34</span> <span class="o">=</span> <span class="s2">"&lt;f34&gt;"</span>
+    <span class="n">F35</span> <span class="o">=</span> <span class="s2">"&lt;f35&gt;"</span>
+    
+    <span class="c1"># Other</span>
+    <span class="n">ESCAPE</span> <span class="o">=</span> <span class="s2">"&lt;escape&gt;"</span>
+    <span class="n">INSERT</span> <span class="o">=</span> <span class="s2">"&lt;insert&gt;"</span>
+    <span class="n">DELETE</span> <span class="o">=</span> <span class="s2">"&lt;delete&gt;"</span>
+    <span class="n">HOME</span> <span class="o">=</span> <span class="s2">"&lt;home&gt;"</span>
+    <span class="n">END</span> <span class="o">=</span> <span class="s2">"&lt;end&gt;"</span>
+    <span class="n">PAGE_UP</span> <span class="o">=</span> <span class="s2">"&lt;page_up&gt;"</span>
+    <span class="n">PAGE_DOWN</span> <span class="o">=</span> <span class="s2">"&lt;page_down&gt;"</span>
+
+    <span class="c1"># Numpad</span>
+    <span class="n">NP_INSERT</span> <span class="o">=</span> <span class="s2">"&lt;np_insert&gt;"</span>
+    <span class="n">NP_DELETE</span> <span class="o">=</span> <span class="s2">"&lt;np_delete&gt;"</span>
+    <span class="n">NP_HOME</span> <span class="o">=</span> <span class="s2">"&lt;np_home&gt;"</span>
+    <span class="n">NP_END</span> <span class="o">=</span> <span class="s2">"&lt;np_end&gt;"</span>
+    <span class="n">NP_PAGE_UP</span> <span class="o">=</span> <span class="s2">"&lt;np_page_up&gt;"</span>
+    <span class="n">NP_PAGE_DOWN</span> <span class="o">=</span> <span class="s2">"&lt;np_page_down&gt;"</span>
+    <span class="n">NP_LEFT</span> <span class="o">=</span> <span class="s2">"&lt;np_left&gt;"</span>
+    <span class="n">NP_RIGHT</span> <span class="o">=</span> <span class="s2">"&lt;np_right&gt;"</span>
+    <span class="n">NP_UP</span> <span class="o">=</span> <span class="s2">"&lt;np_up&gt;"</span>
+    <span class="n">NP_DOWN</span> <span class="o">=</span> <span class="s2">"&lt;np_down&gt;"</span>
+    <span class="n">NP_DIVIDE</span> <span class="o">=</span> <span class="s2">"&lt;np_divide&gt;"</span>
+    <span class="n">NP_MULTIPLY</span> <span class="o">=</span> <span class="s2">"&lt;np_multiply&gt;"</span>
+    <span class="n">NP_ADD</span> <span class="o">=</span> <span class="s2">"&lt;np_add&gt;"</span>
+    <span class="n">NP_SUBTRACT</span> <span class="o">=</span> <span class="s2">"&lt;np_subtract&gt;"</span>
+    <span class="n">NP_5</span> <span class="o">=</span> <span class="s2">"&lt;np_5&gt;"</span>
+
+<div class="viewcode-block" id="Key.is_key">
+<a class="viewcode-back" href="../../../api/keyboard.html#autokey.model.key.Key.is_key">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_key</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">key_string</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Returns if a string represents a key.</span>
+<span class="sd">        """</span>
+        <span class="c1"># Key strings must be treated as case insensitive - always convert to lowercase</span>
+        <span class="c1"># before doing any comparisons</span>
+        <span class="n">lowered_key_string</span> <span class="o">=</span> <span class="n">key_string</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">cls</span><span class="p">(</span><span class="n">lowered_key_string</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">_code_point_re</span><span class="o">.</span><span class="n">fullmatch</span><span class="p">(</span><span class="n">lowered_key_string</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span></div>
+</div>
+
+
+
+<span class="n">NAVIGATION_KEYS</span> <span class="o">=</span> <span class="p">[</span><span class="n">Key</span><span class="o">.</span><span class="n">LEFT</span><span class="p">,</span> <span class="n">Key</span><span class="o">.</span><span class="n">RIGHT</span><span class="p">,</span> <span class="n">Key</span><span class="o">.</span><span class="n">UP</span><span class="p">,</span> <span class="n">Key</span><span class="o">.</span><span class="n">DOWN</span><span class="p">,</span> <span class="n">Key</span><span class="o">.</span><span class="n">BACKSPACE</span><span class="p">,</span> <span class="n">Key</span><span class="o">.</span><span class="n">HOME</span><span class="p">,</span> <span class="n">Key</span><span class="o">.</span><span class="n">END</span><span class="p">,</span> <span class="n">Key</span><span class="o">.</span><span class="n">PAGE_UP</span><span class="p">,</span> <span class="n">Key</span><span class="o">.</span><span class="n">PAGE_DOWN</span><span class="p">]</span>
+<span class="c1"># All known modifier keys. This is used to determine if a key is a modifier. Used by the Configuration manager</span>
+<span class="c1"># to verify that only modifier keys are placed in the disabled modifiers list.</span>
+<span class="n">_ALL_MODIFIERS_</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">Key</span><span class="o">.</span><span class="n">CONTROL</span><span class="p">,</span> <span class="n">Key</span><span class="o">.</span><span class="n">ALT</span><span class="p">,</span> <span class="n">Key</span><span class="o">.</span><span class="n">ALT_GR</span><span class="p">,</span> <span class="n">Key</span><span class="o">.</span><span class="n">SHIFT</span><span class="p">,</span> <span class="n">Key</span><span class="o">.</span><span class="n">SUPER</span><span class="p">,</span> <span class="n">Key</span><span class="o">.</span><span class="n">HYPER</span><span class="p">,</span> <span class="n">Key</span><span class="o">.</span><span class="n">CAPSLOCK</span><span class="p">,</span> <span class="n">Key</span><span class="o">.</span><span class="n">NUMLOCK</span><span class="p">,</span> <span class="n">Key</span><span class="o">.</span><span class="n">META</span>
+<span class="p">)</span>
+
+<span class="c1"># Used to identify special keys in texts. Also include &lt;codeXX&gt; literals as defined in the _code_point_re.</span>
+<span class="n">KEY_FIND_RE</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">"|"</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="s2">"|"</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">Key</span><span class="p">),</span> <span class="n">_code_point_re</span><span class="o">.</span><span class="n">pattern</span><span class="p">)),</span> <span class="n">re</span><span class="o">.</span><span class="n">UNICODE</span><span class="p">)</span>
+<span class="n">KEY_SPLIT_RE</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">"(&lt;[^&lt;&gt;]+&gt;\+?)"</span><span class="p">)</span>
+<span class="n">MODIFIERS</span> <span class="o">=</span> <span class="p">[</span><span class="n">Key</span><span class="o">.</span><span class="n">CONTROL</span><span class="p">,</span> <span class="n">Key</span><span class="o">.</span><span class="n">ALT</span><span class="p">,</span> <span class="n">Key</span><span class="o">.</span><span class="n">ALT_GR</span><span class="p">,</span> <span class="n">Key</span><span class="o">.</span><span class="n">SHIFT</span><span class="p">,</span> <span class="n">Key</span><span class="o">.</span><span class="n">SUPER</span><span class="p">,</span> <span class="n">Key</span><span class="o">.</span><span class="n">HYPER</span><span class="p">,</span> <span class="n">Key</span><span class="o">.</span><span class="n">META</span><span class="p">,</span> <span class="n">Key</span><span class="o">.</span><span class="n">CAPSLOCK</span><span class="p">,</span> <span class="n">Key</span><span class="o">.</span><span class="n">NUMLOCK</span><span class="p">]</span>
+<span class="n">HELD_MODIFIERS</span> <span class="o">=</span> <span class="p">[</span><span class="n">Key</span><span class="o">.</span><span class="n">CONTROL</span><span class="p">,</span> <span class="n">Key</span><span class="o">.</span><span class="n">ALT_GR</span><span class="p">,</span> <span class="n">Key</span><span class="o">.</span><span class="n">ALT</span><span class="p">,</span> <span class="n">Key</span><span class="o">.</span><span class="n">SUPER</span><span class="p">,</span> <span class="n">Key</span><span class="o">.</span><span class="n">SHIFT</span><span class="p">,</span> <span class="n">Key</span><span class="o">.</span><span class="n">HYPER</span><span class="p">,</span> <span class="n">Key</span><span class="o">.</span><span class="n">META</span>
+<span class="p">]</span>
+</pre></div>
+
+           </div>
+          </div>
+
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+  <p>
+    &#169; Copyright 2023, 
+    <a href="https://github.com/autokey/autokey/blob/master/ACKNOWLEDGMENTS" target="_blank" rel="noopener noreferrer" style="color: #2980b9; text-decoration: underline;">various</a>.
+  </p>
+
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

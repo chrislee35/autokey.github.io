@@ -139,6 +139,11 @@ html_static_path = [
     '_static',
 ]
 
+# Documentation for previous versions, copied into the site as it was built:
+html_extra_path = [
+    '_archive',
+]
+
 # Location of the hosted source files passed to templates. Enables the
 # "Edit on GitHub" behavior in the top right corners of HTML pages:
 html_context = {

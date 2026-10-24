@@ -1,0 +1,362 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Window API &mdash; AutoKey 0.96.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/archive-banner.css?v=a835967c" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=ebd97e04"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Engine API" href="engine.html" />
+    <link rel="prev" title="System API" href="system.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction to Autokey</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html#common-actions">Common actions</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">Autokey API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="keyboard.html">Keyboard API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="keyboard.html#keys">Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mouse.html">Mouse API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mouse.html#buttons">Buttons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="store.html">Store API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qtdialog.html">QtDialog API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qtclipboard.html">QtClipboard API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gtkdialog.html">GtkDialog API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gtkclipboard.html">GtkClipboard API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="system.html">System API</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Window API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#autokey.scripting.Window"><code class="docutils literal notranslate"><span class="pre">Window</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.scripting.Window.activate"><code class="docutils literal notranslate"><span class="pre">Window.activate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.scripting.Window.close"><code class="docutils literal notranslate"><span class="pre">Window.close()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.scripting.Window.get_active_class"><code class="docutils literal notranslate"><span class="pre">Window.get_active_class()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.scripting.Window.get_active_geometry"><code class="docutils literal notranslate"><span class="pre">Window.get_active_geometry()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.scripting.Window.get_active_title"><code class="docutils literal notranslate"><span class="pre">Window.get_active_title()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.scripting.Window.move_to_desktop"><code class="docutils literal notranslate"><span class="pre">Window.move_to_desktop()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.scripting.Window.resize_move"><code class="docutils literal notranslate"><span class="pre">Window.resize_move()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.scripting.Window.set_property"><code class="docutils literal notranslate"><span class="pre">Window.set_property()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.scripting.Window.switch_desktop"><code class="docutils literal notranslate"><span class="pre">Window.switch_desktop()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.scripting.Window.wait_for_exist"><code class="docutils literal notranslate"><span class="pre">Window.wait_for_exist()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.scripting.Window.wait_for_focus"><code class="docutils literal notranslate"><span class="pre">Window.wait_for_focus()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="engine.html">Engine API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="highlevel.html">HighLevel API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common.html">Common API</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">AutoKey</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../api.html">Autokey API</a></li>
+      <li class="breadcrumb-item active">Window API</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/autokey/autokey.github.io/blob/master/api/window.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+<div class="ak-archive-banner">
+  This is the documentation for AutoKey 0.96.0, a previous version.
+  <a href="../../../index.html">Go to the current documentation</a>
+  or <a href="../../../previous/index.html">see all previous versions</a>.
+</div>
+
+           <div itemprop="articleBody">
+             
+  <section id="module-autokey.common">
+<span id="window-api"></span><h1>Window API<a class="headerlink" href="#module-autokey.common" title="Link to this heading"></a></h1>
+<dl class="py class" id="module-autokey.scripting">
+<span id="module-autokey.gtkapp"></span><dt class="sig sig-object py" id="autokey.scripting.Window">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">autokey.scripting.</span></span><span class="sig-name descname"><span class="pre">Window</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mediator</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/autokey/scripting/window.html#Window"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#autokey.scripting.Window" title="Link to this definition"></a></dt>
+<dd><p>Basic window management using wmctrl</p>
+<p>Note: in all cases where a window title is required (with the exception of wait_for_focus()),
+two special values of window title are permitted:</p>
+<dl class="field-list simple">
+<dt class="field-odd">ACTIVE<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p>select the currently active window</p></li>
+</ul>
+</dd>
+<dt class="field-even">SELECT<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p>select the desired window by clicking on it</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="autokey.scripting.Window.activate">
+<span class="sig-name descname"><span class="pre">activate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">switchDesktop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">matchClass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/autokey/scripting/window.html#Window.activate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#autokey.scripting.Window.activate" title="Link to this definition"></a></dt>
+<dd><p>Activate the specified window, giving it input focus</p>
+<p>Usage: <code class="xref py py-obj docutils literal notranslate"><span class="pre">window.activate(title,</span> <span class="pre">switchDesktop=False,</span> <span class="pre">matchClass=False)</span></code></p>
+<p>If switchDesktop is False (default), the window will be moved to the current desktop
+and activated. Otherwise, switch to the window’s current desktop and activate it there.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>title</strong> – window title to match against (as case-insensitive substring match)</p></li>
+<li><p><strong>switchDesktop</strong> – whether or not to switch to the window’s current desktop</p></li>
+<li><p><strong>matchClass</strong> – if True, match on the window class instead of the title</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autokey.scripting.Window.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">matchClass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/autokey/scripting/window.html#Window.close"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#autokey.scripting.Window.close" title="Link to this definition"></a></dt>
+<dd><p>Close the specified window gracefully</p>
+<p>Usage: <code class="xref py py-obj docutils literal notranslate"><span class="pre">window.close(title,</span> <span class="pre">matchClass=False)</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>title</strong> – window title to match against (as case-insensitive substring match)</p></li>
+<li><p><strong>matchClass</strong> – if True, match on the window class instead of the title</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autokey.scripting.Window.get_active_class">
+<span class="sig-name descname"><span class="pre">get_active_class</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/autokey/scripting/window.html#Window.get_active_class"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#autokey.scripting.Window.get_active_class" title="Link to this definition"></a></dt>
+<dd><p>Get the class of the currently active window</p>
+<p>Usage: <code class="xref py py-obj docutils literal notranslate"><span class="pre">window.get_active_class()</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the class of the currentle active window</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autokey.scripting.Window.get_active_geometry">
+<span class="sig-name descname"><span class="pre">get_active_geometry</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/autokey/scripting/window.html#Window.get_active_geometry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#autokey.scripting.Window.get_active_geometry" title="Link to this definition"></a></dt>
+<dd><p>Get the geometry of the currently active window</p>
+<p>Usage: <code class="xref py py-obj docutils literal notranslate"><span class="pre">window.get_active_geometry()</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a 4-tuple containing the x-origin, y-origin, width and height of the window (in pixels)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">tuple(int,</span> <span class="pre">int,</span> <span class="pre">int,</span> <span class="pre">int)</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autokey.scripting.Window.get_active_title">
+<span class="sig-name descname"><span class="pre">get_active_title</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/autokey/scripting/window.html#Window.get_active_title"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#autokey.scripting.Window.get_active_title" title="Link to this definition"></a></dt>
+<dd><p>Get the visible title of the currently active window</p>
+<p>Usage: <code class="xref py py-obj docutils literal notranslate"><span class="pre">window.get_active_title()</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the visible title of the currentle active window</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autokey.scripting.Window.move_to_desktop">
+<span class="sig-name descname"><span class="pre">move_to_desktop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deskNum</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">matchClass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/autokey/scripting/window.html#Window.move_to_desktop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#autokey.scripting.Window.move_to_desktop" title="Link to this definition"></a></dt>
+<dd><p>Move the specified window to the given desktop</p>
+<p>Usage: <code class="xref py py-obj docutils literal notranslate"><span class="pre">window.move_to_desktop(title,</span> <span class="pre">deskNum,</span> <span class="pre">matchClass=False)</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>title</strong> – window title to match against (as case-insensitive substring match)</p></li>
+<li><p><strong>deskNum</strong> – desktop to move the window to (note: zero based)</p></li>
+<li><p><strong>matchClass</strong> – if True, match on the window class instead of the title</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autokey.scripting.Window.resize_move">
+<span class="sig-name descname"><span class="pre">resize_move</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xOrigin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yOrigin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">matchClass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/autokey/scripting/window.html#Window.resize_move"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#autokey.scripting.Window.resize_move" title="Link to this definition"></a></dt>
+<dd><p>Resize and/or move the specified window</p>
+<p>Usage: <code class="xref py py-obj docutils literal notranslate"><span class="pre">window.close(title,</span> <span class="pre">xOrigin=-1,</span> <span class="pre">yOrigin=-1,</span> <span class="pre">width=-1,</span> <span class="pre">height=-1,</span> <span class="pre">matchClass=False)</span></code></p>
+<p>Leaving and of the position/dimension values as the default (-1) will cause that
+value to be left unmodified.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>title</strong> – window title to match against (as case-insensitive substring match)</p></li>
+<li><p><strong>xOrigin</strong> – new x origin of the window (upper left corner)</p></li>
+<li><p><strong>yOrigin</strong> – new y origin of the window (upper left corner)</p></li>
+<li><p><strong>width</strong> – new width of the window</p></li>
+<li><p><strong>height</strong> – new height of the window</p></li>
+<li><p><strong>matchClass</strong> – if True, match on the window class instead of the title</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autokey.scripting.Window.set_property">
+<span class="sig-name descname"><span class="pre">set_property</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">action</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">matchClass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/autokey/scripting/window.html#Window.set_property"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#autokey.scripting.Window.set_property" title="Link to this definition"></a></dt>
+<dd><p>Set a property on the given window using the specified action</p>
+<p>Usage: <code class="xref py py-obj docutils literal notranslate"><span class="pre">window.set_property(title,</span> <span class="pre">action,</span> <span class="pre">prop,</span> <span class="pre">matchClass=False)</span></code></p>
+<p>Allowable actions: <code class="xref py py-obj docutils literal notranslate"><span class="pre">add,</span> <span class="pre">remove,</span> <span class="pre">toggle</span></code>
+Allowable properties: C{modal, sticky, maximized_vert, maximized_horz, shaded, skip_taskbar,
+skip_pager, hidden, fullscreen, above}</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>title</strong> – window title to match against (as case-insensitive substring match)</p></li>
+<li><p><strong>action</strong> – one of the actions listed above</p></li>
+<li><p><strong>prop</strong> – one of the properties listed above</p></li>
+<li><p><strong>matchClass</strong> – if True, match on the window class instead of the title</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autokey.scripting.Window.switch_desktop">
+<span class="sig-name descname"><span class="pre">switch_desktop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deskNum</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/autokey/scripting/window.html#Window.switch_desktop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#autokey.scripting.Window.switch_desktop" title="Link to this definition"></a></dt>
+<dd><p>Switch to the specified desktop</p>
+<p>Usage: <code class="xref py py-obj docutils literal notranslate"><span class="pre">window.switch_desktop(deskNum)</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>deskNum</strong> – desktop to switch to (note: zero based)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autokey.scripting.Window.wait_for_exist">
+<span class="sig-name descname"><span class="pre">wait_for_exist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeOut</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/autokey/scripting/window.html#Window.wait_for_exist"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#autokey.scripting.Window.wait_for_exist" title="Link to this definition"></a></dt>
+<dd><p>Wait for window with the given title to be created</p>
+<p>Usage: <code class="xref py py-obj docutils literal notranslate"><span class="pre">window.wait_for_exist(title,</span> <span class="pre">timeOut=5)</span></code></p>
+<p>If the window is in existence, returns True. Otherwise, returns False if
+the window has not been created by the time the timeout has elapsed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>title</strong> – title to match against (as a regular expression)</p></li>
+<li><p><strong>timeOut</strong> – period (seconds) to wait before giving up</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>boolean</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autokey.scripting.Window.wait_for_focus">
+<span class="sig-name descname"><span class="pre">wait_for_focus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeOut</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/autokey/scripting/window.html#Window.wait_for_focus"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#autokey.scripting.Window.wait_for_focus" title="Link to this definition"></a></dt>
+<dd><p>Wait for window with the given title to have focus</p>
+<p>Usage: <code class="xref py py-obj docutils literal notranslate"><span class="pre">window.wait_for_focus(title,</span> <span class="pre">timeOut=5)</span></code></p>
+<p>If the window becomes active, returns True. Otherwise, returns False if
+the window has not become active by the time the timeout has elapsed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>title</strong> – title to match against (as a regular expression)</p></li>
+<li><p><strong>timeOut</strong> – period (seconds) to wait before giving up</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>boolean</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="system.html" class="btn btn-neutral float-left" title="System API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="engine.html" class="btn btn-neutral float-right" title="Engine API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+  <p>
+    &#169; Copyright 2023, 
+    <a href="https://github.com/autokey/autokey/blob/master/ACKNOWLEDGMENTS" target="_blank" rel="noopener noreferrer" style="color: #2980b9; text-decoration: underline;">various</a>.
+  </p>
+
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

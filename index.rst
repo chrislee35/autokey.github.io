@@ -35,6 +35,12 @@ Welcome to AutoKey!
    scripting/special-keys
    api
 
+.. toctree::
+   :caption: Previous versions
+   :maxdepth: 1
+
+   previous/index
+
 .. only:: html
 
    Indices and tables

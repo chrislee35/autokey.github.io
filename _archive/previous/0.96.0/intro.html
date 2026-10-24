@@ -1,0 +1,293 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introduction to Autokey &mdash; AutoKey 0.96.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/archive-banner.css?v=a835967c" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=ebd97e04"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Autokey API" href="api.html" />
+    <link rel="prev" title="Welcome to AutoKey!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html">
+            
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction to Autokey</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#glossary-of-autokey-terms">Glossary of AutoKey Terms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-are-things-organized">How are things organized?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-source-settings-on-a-new-computer">How to “source” settings on a new computer?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#why-would-you-use-autokey-and-what-does-it-do-for-you">Why Would You Use AutoKey And What Does It Do For You?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#some-examples">Some examples:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-autokey-and-how-does-it-work">What Is AutoKey and How Does It Work?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#common-actions">Common actions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#adding-abbreviations">Adding Abbreviations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">Autokey API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">AutoKey</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Introduction to Autokey</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/autokey/autokey.github.io/blob/master/intro.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+<div class="ak-archive-banner">
+  This is the documentation for AutoKey 0.96.0, a previous version.
+  <a href="../../index.html">Go to the current documentation</a>
+  or <a href="../../previous/index.html">see all previous versions</a>.
+</div>
+
+           <div itemprop="articleBody">
+             
+  <section id="introduction-to-autokey">
+<h1>Introduction to Autokey<a class="headerlink" href="#introduction-to-autokey" title="Link to this heading"></a></h1>
+<p>This page contains a basic introduction on what AutoKey is and what it
+does.</p>
+<section id="glossary-of-autokey-terms">
+<h2>Glossary of AutoKey Terms<a class="headerlink" href="#glossary-of-autokey-terms" title="Link to this heading"></a></h2>
+<p>We are including the glossary of AutoKey terms at the beginning of the
+users manual because understanding our definitions of the terms, as they
+apply to AutoKey, will make understanding the AutoKey much easier.</p>
+<ul class="simple">
+<li><p><strong>abbreviation</strong> is a short sequence of letters, numbers or symbols
+that when typed will trigger AutoKey to do something (run a script,
+insert a phrase, display a menu).</p></li>
+<li><p><strong>AutoKey icon</strong> - the letter “A” icon that appears in the
+notification area or system tray when AutoKey is started. Clicking on
+the icon opens a pop-up menu that gives you access to AutoKey’s
+features. The icon can be changed - either by an icon theme or in the
+preferences menu.</p></li>
+<li><p><strong>folders</strong> are displayed in the left column of the main window. They
+can contain sub-folders, scripts and phrases. You can add sub-folders
+or create new folders as needed.</p></li>
+<li><p><strong>hotkey</strong> - a key or combination of keys that, when pressed, will
+trigger AutoKey to do something; run a script, insert a phrase or
+display a menu. A hotkey can be created using any key on the keyboard
+(within reason), with or without one or more modifier keys. The
+modifier keys are Shift, Control, Alt and Super (a.k.a. Windows).</p></li>
+<li><p><strong>phrase</strong> - a text string or block of text. Phrases can include one
+or more scripts and their output can add content to the text (ex:
+current time) or modify it in other ways (ex: position, format,
+footnotes, etc.).</p></li>
+<li><p><strong>script</strong> - a small program written in Python. It can start other
+programs, send commands to a running window, re-size your window,
+reposition your cursor after execution, etc.</p></li>
+<li><p><strong>tray menu</strong> - pop-up menu that appears when the AutoKey icon is
+clicked.</p></li>
+<li><p><strong>triggers</strong> - hotkeys and typed abbreviations.</p></li>
+<li><p><strong>macro</strong> - A special <code class="docutils literal notranslate"><span class="pre">&lt;tag&gt;</span></code> that can be placed inside a phrase,
+turning the phrase into a dynamic phrase. Upon phrase expansion, the
+tags are replaced with text. For example, the <code class="docutils literal notranslate"><span class="pre">date</span></code> tag is
+replaced with the current date and time. For details, see
+<a class="reference external" href="https://github.com/autokey/autokey/wiki/Phrases#create-dynamic-phrases-by-using-macros-as-placeholders">Create dynamic phrases by using macros as placeholders</a>.</p></li>
+</ul>
+</section>
+<section id="how-are-things-organized">
+<h2>How are things organized?<a class="headerlink" href="#how-are-things-organized" title="Link to this heading"></a></h2>
+<p>Each AutoKey phrase and script consists of two files, a file containing
+the body of the script or phrase and a sidecar file containing the
+metadata for the script or phrase. You have to make sure you copy/move
+the pairs together or they will not work.</p>
+<p>Scripts: my_script.py / .my_script.json</p>
+<p>Phrases: my_phrase.txt / .my_phrase.json</p>
+<p>Because the metadata file names start with a dot, they are hidden files
+by default and some copy commands like cp will miss them by default.
+rsync will get them. (Credits to Joe)</p>
+<section id="how-to-source-settings-on-a-new-computer">
+<h3>How to “source” settings on a new computer?<a class="headerlink" href="#how-to-source-settings-on-a-new-computer" title="Link to this heading"></a></h3>
+<p>First, install (latest) AutoKey on the new computer and press the New
+icon, then Folder. Select the folder that contains the settings from the
+previous installation. Expect to see an empty folder from the panel on
+the left.</p>
+<p>Secondly, quit the current AutoKey session through its icon in the
+system tray, and start AutoKey again. Since AutoKey does not monitor its
+“directories” on the fly, restarting it necessary.</p>
+</section>
+</section>
+<section id="why-would-you-use-autokey-and-what-does-it-do-for-you">
+<h2>Why Would You Use AutoKey And What Does It Do For You?<a class="headerlink" href="#why-would-you-use-autokey-and-what-does-it-do-for-you" title="Link to this heading"></a></h2>
+<p>AutoKey can be a huge time saver, energy saver and productivity booster
+and can also reduce the stress on your arms and hands.</p>
+<section id="some-examples">
+<h3>Some examples:<a class="headerlink" href="#some-examples" title="Link to this heading"></a></h3>
+<p>There are certain things you type over and over; your address, your
+company name or your custom signature. AutoKey’s abbreviations can
+automatically expand a few characters into any of your commonly used
+text blocks. For programmers, AutoKey’s text insertion features can let
+you easily insert code tags, dividers, etc. at the cursor position.</p>
+<p>If you use database, CAD/CAM, engineering or scientific software that
+require complex key combinations, AutoKey can be configured to send
+commands that will activate those features with a single keystroke.</p>
+<p>Instead of just inserting text, a script can be used to manipulate
+several different running programs, transfer text between them, start
+and close them as well as send keyboard and mouse input to them.</p>
+<p>AutoKey works across all applications. Any phrase, script or
+abbreviation can be used in multiple applications. This means you do not
+have to configure all the different applications that you use - you can
+do it once in AutoKey and it works for all your applications.</p>
+<p>AutoKey is very useful if you write or edit business documents, novels,
+documentation, articles, web blogs, programs or fill out a lot of forms.</p>
+</section>
+</section>
+<section id="what-is-autokey-and-how-does-it-work">
+<h2>What Is AutoKey and How Does It Work?<a class="headerlink" href="#what-is-autokey-and-how-does-it-work" title="Link to this heading"></a></h2>
+<p>It is a trigger or selection activated, automation utility program for
+Linux and X11. When a trigger is detected by Autokey, one of three
+things can happen; a script is activated, text is inserted at the cursor
+position or a pop-up menu is displayed allowing a script or phrase to be
+activated by selecting it.</p>
+<p>AutoKey scripts can literally do almost anything that can be coded as a
+Python program. Python scripts are user created and can be shared
+between users. AutoKey includes a range of sample Python scripts, and
+there are countless Python scripting resources on-line for learning how
+to write scripts.</p>
+<p>The core part of AutoKey works by sending and receiving keyboard events
+via the X server. It supports multiple ways of communicating with X and
+as such should - in theory - work with any Western keyboard layout.
+(Problems are known to exist with Russian/Mandarin/Japanese languages)</p>
+</section>
+</section>
+<section id="common-actions">
+<h1>Common actions<a class="headerlink" href="#common-actions" title="Link to this heading"></a></h1>
+<section id="adding-abbreviations">
+<h2>Adding Abbreviations<a class="headerlink" href="#adding-abbreviations" title="Link to this heading"></a></h2>
+<p>On the left side of the configuration window you will see a “tree” view
+of the folders/subfolders already in AutoKey.</p>
+<p>Let’s first add a New Top-level folder for the abbreviations you are
+going to add:</p>
+<p>File &gt; Create &gt; New Top-level Folder. You can choose to create the new
+folder anywhere you wish, or you may click “Use Default” and type a
+name. This will create a new folder under the default folder.</p>
+<p>Now that we have a new folder, we can start adding abbreviations.</p>
+<p>Ensure you have the folder you want the phrase created in selected, then
+press Ctrl + N or use the menu or the right-click menu. The main menu
+option is File &gt; Create &gt; New Phrase. Enter a name for your phrase and
+click OK.</p>
+<p>Next press the tab key to get to the big dialog window to enter the
+contents of your phrase. Once the phrase is entered press Ctrl + Tab to
+navigate via keyboard or click on the “Set” button for “Abbreviation”.
+This will bring up a “Set Abbreviation” dialog - this is where you set
+the actual abbreviation for the phrase. Leave the “Trigger on” to
+“Default.” Make sure you leave “Remove typed abbreviation” checked,
+unless you want to leave the abbreviation in the document for some
+reason.</p>
+<p>In this example, we’ll set the “Match phrase case to typed abbreviation”
+- this option and “Ignore case of typed abbreviation” work in concert to
+let your abbreviation expand with case sensitivity:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Abbreviation</p></th>
+<th class="head"><p>You See</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>tp</p></td>
+<td><p>the patient</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tp</p></td>
+<td><p>The patient</p></td>
+</tr>
+<tr class="row-even"><td><p>TP</p></td>
+<td><p>THE PATIENT</p></td>
+</tr>
+</tbody>
+</table>
+<p>Click “OK” or type Alt to accept the abbreviation settings. One last
+step - click “Save” or Control + S to save the changes to the phrase.</p>
+<p>Now, if you type the abbreviation you created in any document or window,
+it will be replaced with the phrase contents you created.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to AutoKey!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="api.html" class="btn btn-neutral float-right" title="Autokey API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+  <p>
+    &#169; Copyright 2023, 
+    <a href="https://github.com/autokey/autokey/blob/master/ACKNOWLEDGMENTS" target="_blank" rel="noopener noreferrer" style="color: #2980b9; text-decoration: underline;">various</a>.
+  </p>
+
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

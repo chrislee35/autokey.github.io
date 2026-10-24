@@ -1,0 +1,169 @@
+/* Epydoc stylesheet restyled to match the AutoKey documentation site
+ * (sphinx_rtd_theme). Class names are epydoc's own; only the look changed.
+ * Fonts come from the main site's theme files two directories up.
+ */
+@font-face { font-family: "Lato"; font-weight: 400; font-style: normal;
+  src: url("../../_static/css/fonts/lato-normal.woff2") format("woff2"), url("../../_static/css/fonts/lato-normal.woff") format("woff"); }
+@font-face { font-family: "Lato"; font-weight: 400; font-style: italic;
+  src: url("../../_static/css/fonts/lato-normal-italic.woff2") format("woff2"), url("../../_static/css/fonts/lato-normal-italic.woff") format("woff"); }
+@font-face { font-family: "Lato"; font-weight: 700; font-style: normal;
+  src: url("../../_static/css/fonts/lato-bold.woff2") format("woff2"), url("../../_static/css/fonts/lato-bold.woff") format("woff"); }
+@font-face { font-family: "Roboto Slab"; font-weight: 700; font-style: normal;
+  src: url("../../_static/css/fonts/Roboto-Slab-Bold.woff2") format("woff2"), url("../../_static/css/fonts/Roboto-Slab-Bold.woff") format("woff"); }
+
+body                        { background: #fcfcfc; color: #404040;
+                              font-family: "Lato", "proxima-nova", "Helvetica Neue", Arial, sans-serif;
+                              font-size: 16px; line-height: 1.5; margin: 0 1.2em 1.5em 1.2em; }
+p                           { margin-top: 0.5em; margin-bottom: 0.9em; }
+a:link                      { color: #2980b9; text-decoration: none; }
+a:visited                   { color: #9b59b6; }
+a:hover                     { color: #3091d1; text-decoration: underline; }
+dt                          { font-weight: bold; }
+h1, h2, h3                  { font-family: "Roboto Slab", "ff-tisa-web-pro", Georgia, Arial, sans-serif;
+                              font-weight: bold; font-style: normal; color: #404040; }
+h1                          { font-size: 150%; }
+h2                          { font-size: 130%; }
+h3                          { font-size: 115%; }
+code, tt, pre               { font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+                              font-size: 90%; }
+a.link                      { font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; }
+
+h1.epydoc                   { margin: 0.5em 0 0.2em 0; font-size: 150%; font-weight: bold; }
+h2.epydoc                   { font-size: 130%; font-weight: bold; }
+h3.epydoc                   { font-size: 115%; font-weight: bold; margin-top: 0.2em; }
+td h3.epydoc                { font-size: 115%; font-weight: bold; margin-bottom: 0; }
+table.navbar                { background: #343131; color: #fcfcfc; border: 0; margin: 0 -1.2em; width: calc(100% + 2.4em); }
+table.navbar table          { color: #fcfcfc; }
+table.navbar th             { padding: 0.35em 0; font-weight: normal; }
+th.navbar-select            { background: #2980b9; color: #ffffff; }
+table.navbar a              { text-decoration: none; }
+table.navbar a:link         { color: #fcfcfc; }
+table.navbar a:visited      { color: #fcfcfc; }
+table.navbar a:hover        { color: #ffffff; text-decoration: underline; }
+span.breadcrumbs            { font-size: 85%; font-weight: bold; }
+span.options                { font-size: 75%; }
+span.codelink               { font-size: 85%; }
+td.footer                   { font-size: 85%; }
+
+td.table-header             { background: #2980b9; color: #ffffff; border: 1px solid #2980b9; padding: 0.25em 0.5em; }
+td.table-header table       { color: #ffffff; }
+td.table-header table a:link      { color: #ffffff; text-decoration: underline; }
+td.table-header table a:visited   { color: #ffffff; }
+span.table-header           { font-size: 115%; font-weight: bold; }
+th.group-header             { background: #e7f2fa; color: #404040; text-align: left; font-style: normal;
+                              font-size: 105%; border: 1px solid #e1e4e5; }
+
+table.summary               { border-collapse: collapse; background: #ffffff; color: #404040;
+                              border: 1px solid #e1e4e5; margin-bottom: 0.9em; }
+td.summary                  { border: 1px solid #e1e4e5; padding: 0.3em 0.5em; }
+code.summary-type           { font-size: 85%; }
+table.summary a:link        { color: #2980b9; }
+table.summary a:visited     { color: #9b59b6; }
+
+table.details               { border-collapse: collapse; background: #ffffff; color: #404040;
+                              border: 1px solid #e1e4e5; margin: .2em 0 0 0; }
+table.details table         { color: #404040; }
+table.details a:link        { color: #2980b9; }
+table.details a:visited     { color: #9b59b6; }
+
+dl.fields                   { margin-left: 2em; margin-top: 1em; margin-bottom: 1em; }
+dl.fields dd ul             { margin-left: 0em; padding-left: 0em; }
+dl.fields dd ul li ul       { margin-left: 2em; padding-left: 0em; }
+div.fields                  { margin-left: 2em; }
+div.fields p                { margin-bottom: 0.5em; }
+
+table.link-index            { border-collapse: collapse; background: #ffffff; color: #404040; border: 1px solid #e1e4e5; }
+td.link-index               { border-width: 0px; }
+table.link-index a:link     { color: #2980b9; }
+table.link-index a:visited  { color: #9b59b6; }
+span.index-where            { font-size: 75%; }
+table.metadata-index        { border-collapse: collapse; background: #ffffff; color: #404040;
+                              border: 1px solid #e1e4e5; margin: .2em 0 0 0; }
+td.metadata-index           { border-width: 1px; border-style: solid; border-color: #e1e4e5; }
+table.metadata-index a:link { color: #2980b9; }
+table.metadata-index a:visited  { color: #9b59b6; }
+
+.sig-name                   { color: #1a5e8f; }
+.sig-arg                    { color: #2e7d4f; }
+.sig-default                { color: #8a4b12; }
+.summary-sig                { font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; }
+.summary-sig-name           { color: #1a5e8f; font-weight: bold; }
+table.summary a.summary-sig-name:link    { color: #1a5e8f; font-weight: bold; }
+table.summary a.summary-sig-name:visited { color: #1a5e8f; font-weight: bold; }
+.summary-sig-arg            { color: #2e7d4f; }
+.summary-sig-default        { color: #8a4b12; }
+
+ul.subclass-list { display: inline; }
+ul.subclass-list li { display: inline; }
+
+table.summary .summary-name { color: #1a5e8f; font-weight: bold; font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; }
+table.summary a.summary-name:link    { color: #1a5e8f; font-weight: bold; font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; }
+table.summary a.summary-name:visited { color: #1a5e8f; font-weight: bold; font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; }
+
+pre.variable                { padding: .5em; margin: 0; background: #f8f8f8; color: #404040; border: 1px solid #e1e4e5; }
+.variable-linewrap          { color: #8a4b12; font-weight: bold; }
+.variable-ellipsis          { color: #8a4b12; font-weight: bold; }
+.variable-quote             { color: #8a4b12; font-weight: bold; }
+.variable-group             { color: #2e7d4f; font-weight: bold; }
+.variable-op                { color: #8a4b12; font-weight: bold; }
+.variable-string            { color: #2e7d4f; }
+.variable-unknown           { color: #c0392b; font-weight: bold; }
+.re                         { color: #404040; }
+.re-char                    { color: #2e7d4f; }
+.re-op                      { color: #a02020; }
+.re-group                   { color: #1a5e8f; }
+.re-ref                     { color: #606060; }
+
+pre.base-tree               { font-size: 80%; margin: 0; }
+
+h1.toc                      { text-align: center; font-size: 105%; margin: 0.4em 0; font-weight: bold; padding: 0; }
+h2.toc                      { font-size: 100%; font-weight: bold; margin: 0.5em 0 0 -0.3em; }
+
+pre.py-doctest              { padding: .5em; margin: 1em; background: #f8f8f8; color: #404040; border: 1px solid #e1e4e5; }
+table pre.py-doctest        { background: #f8f8f8; color: #404040; }
+pre.py-src                  { border: 1px solid #e1e4e5; background: #f8f8f8; color: #404040; }
+.py-line                    { border-left: 2px solid #e1e4e5; margin-left: .2em; padding-left: .4em; }
+.py-lineno                  { font-style: italic; font-size: 90%; padding-left: .5em; }
+a.py-toggle                 { text-decoration: none; }
+div.py-highlight-hdr        { border-top: 1px solid #2980b9; border-bottom: 1px solid #2980b9; background: #e7f2fa; }
+div.py-highlight            { border-bottom: 1px solid #2980b9; background: #f1f8fc; }
+.py-prompt                  { color: #1a5e8f; font-weight: bold; }
+.py-more                    { color: #1a5e8f; font-weight: bold; }
+.py-string                  { color: #2e7d4f; }
+.py-comment                 { color: #6a737d; }
+.py-keyword                 { color: #a02020; }
+.py-output                  { color: #606060; }
+.py-name                    { color: #1c3f66; }
+.py-name:link               { color: #1c3f66 !important; }
+.py-name:visited            { color: #1c3f66 !important; }
+.py-number                  { color: #2e7d4f; }
+.py-defname                 { color: #1c3f66; font-weight: bold; }
+.py-def-name                { color: #1c3f66; font-weight: bold; }
+.py-base-class              { color: #1c3f66; }
+.py-param                   { color: #1c3f66; }
+.py-docstring               { color: #2e7d4f; }
+.py-decorator               { color: #8a4b12; }
+
+img.graph-without-title     { border: none; }
+img.graph-with-title        { border: 1px solid #e1e4e5; }
+span.graph-title            { font-weight: bold; }
+span.graph-caption          { }
+
+p.indent-wrapped-lines      { padding: 0 0 0 7em; text-indent: -7em; margin: 0; }
+.nomargin-top               { margin-top: 0; }
+.nomargin                   { margin-top: 0; margin-bottom: 0; }
+
+div.log-block               { padding: 0; margin: .5em 0 .5em 0; background: #ffffff; color: #404040; border: 1px solid #e1e4e5; }
+div.log-error               { padding: .1em .3em .1em .3em; margin: 4px; background: #fdecea; color: #404040; border: 1px solid #e1e4e5; }
+div.log-warning             { padding: .1em .3em .1em .3em; margin: 4px; background: #fff4d6; color: #404040; border: 1px solid #e1e4e5; }
+div.log-info                { padding: .1em .3em .1em .3em; margin: 4px; background: #e7f6ea; color: #404040; border: 1px solid #e1e4e5; }
+h2.log-hdr                  { background: #2980b9; color: #ffffff; margin: 0; padding: 0em 0.5em 0em 0.5em; font-size: 110%; }
+p.log                       { font-weight: bold; margin: .5em 0 .5em 0; }
+tr.opt-changed              { color: #404040; font-weight: bold; }
+tr.opt-default              { color: #606060; }
+pre.log                     { margin: 0; padding: 0; padding-left: 1em; }
+
+/* Banner added for the archive: says this is an earlier version. */
+.ak-archive-banner          { background: #fff4d6; border: 1px solid #e0c26b; border-left: 5px solid #c9962b;
+                              color: #4a3b0b; padding: 10px 14px; margin: 14px 0 14px 0; font-size: 90%; }
+.ak-archive-banner a        { color: #1f5f99; font-weight: bold; }

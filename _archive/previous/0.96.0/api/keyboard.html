@@ -1,0 +1,812 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Keyboard API &mdash; AutoKey 0.96.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/archive-banner.css?v=a835967c" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=ebd97e04"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Mouse API" href="mouse.html" />
+    <link rel="prev" title="Autokey API" href="../api.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction to Autokey</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html#common-actions">Common actions</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">Autokey API</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Keyboard API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#autokey.scripting.Keyboard"><code class="docutils literal notranslate"><span class="pre">Keyboard</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.scripting.Keyboard.SendMode"><code class="docutils literal notranslate"><span class="pre">Keyboard.SendMode</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.scripting.Keyboard.fake_keypress"><code class="docutils literal notranslate"><span class="pre">Keyboard.fake_keypress()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.scripting.Keyboard.press_key"><code class="docutils literal notranslate"><span class="pre">Keyboard.press_key()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.scripting.Keyboard.release_key"><code class="docutils literal notranslate"><span class="pre">Keyboard.release_key()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.scripting.Keyboard.send_key"><code class="docutils literal notranslate"><span class="pre">Keyboard.send_key()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.scripting.Keyboard.send_keys"><code class="docutils literal notranslate"><span class="pre">Keyboard.send_keys()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.scripting.Keyboard.wait_for_keyevent"><code class="docutils literal notranslate"><span class="pre">Keyboard.wait_for_keyevent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.scripting.Keyboard.wait_for_keypress"><code class="docutils literal notranslate"><span class="pre">Keyboard.wait_for_keypress()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#keys">Keys</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#autokey.model.key.Key"><code class="docutils literal notranslate"><span class="pre">Key</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.LEFT"><code class="docutils literal notranslate"><span class="pre">Key.LEFT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.RIGHT"><code class="docutils literal notranslate"><span class="pre">Key.RIGHT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.UP"><code class="docutils literal notranslate"><span class="pre">Key.UP</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.DOWN"><code class="docutils literal notranslate"><span class="pre">Key.DOWN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.BACKSPACE"><code class="docutils literal notranslate"><span class="pre">Key.BACKSPACE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.TAB"><code class="docutils literal notranslate"><span class="pre">Key.TAB</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.ENTER"><code class="docutils literal notranslate"><span class="pre">Key.ENTER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.SCROLL_LOCK"><code class="docutils literal notranslate"><span class="pre">Key.SCROLL_LOCK</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.PRINT_SCREEN"><code class="docutils literal notranslate"><span class="pre">Key.PRINT_SCREEN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.PAUSE"><code class="docutils literal notranslate"><span class="pre">Key.PAUSE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.MENU"><code class="docutils literal notranslate"><span class="pre">Key.MENU</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.CONTROL"><code class="docutils literal notranslate"><span class="pre">Key.CONTROL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.ALT"><code class="docutils literal notranslate"><span class="pre">Key.ALT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.ALT_GR"><code class="docutils literal notranslate"><span class="pre">Key.ALT_GR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.SHIFT"><code class="docutils literal notranslate"><span class="pre">Key.SHIFT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.SUPER"><code class="docutils literal notranslate"><span class="pre">Key.SUPER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.HYPER"><code class="docutils literal notranslate"><span class="pre">Key.HYPER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.CAPSLOCK"><code class="docutils literal notranslate"><span class="pre">Key.CAPSLOCK</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.NUMLOCK"><code class="docutils literal notranslate"><span class="pre">Key.NUMLOCK</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.META"><code class="docutils literal notranslate"><span class="pre">Key.META</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.F1"><code class="docutils literal notranslate"><span class="pre">Key.F1</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.F2"><code class="docutils literal notranslate"><span class="pre">Key.F2</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.F3"><code class="docutils literal notranslate"><span class="pre">Key.F3</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.F4"><code class="docutils literal notranslate"><span class="pre">Key.F4</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.F5"><code class="docutils literal notranslate"><span class="pre">Key.F5</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.F6"><code class="docutils literal notranslate"><span class="pre">Key.F6</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.F7"><code class="docutils literal notranslate"><span class="pre">Key.F7</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.F8"><code class="docutils literal notranslate"><span class="pre">Key.F8</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.F9"><code class="docutils literal notranslate"><span class="pre">Key.F9</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.F10"><code class="docutils literal notranslate"><span class="pre">Key.F10</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.F11"><code class="docutils literal notranslate"><span class="pre">Key.F11</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.F12"><code class="docutils literal notranslate"><span class="pre">Key.F12</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.F13"><code class="docutils literal notranslate"><span class="pre">Key.F13</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.F14"><code class="docutils literal notranslate"><span class="pre">Key.F14</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.F15"><code class="docutils literal notranslate"><span class="pre">Key.F15</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.F16"><code class="docutils literal notranslate"><span class="pre">Key.F16</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.F17"><code class="docutils literal notranslate"><span class="pre">Key.F17</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.F18"><code class="docutils literal notranslate"><span class="pre">Key.F18</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.F19"><code class="docutils literal notranslate"><span class="pre">Key.F19</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.F20"><code class="docutils literal notranslate"><span class="pre">Key.F20</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.F21"><code class="docutils literal notranslate"><span class="pre">Key.F21</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.F22"><code class="docutils literal notranslate"><span class="pre">Key.F22</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.F23"><code class="docutils literal notranslate"><span class="pre">Key.F23</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.F24"><code class="docutils literal notranslate"><span class="pre">Key.F24</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.F25"><code class="docutils literal notranslate"><span class="pre">Key.F25</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.F26"><code class="docutils literal notranslate"><span class="pre">Key.F26</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.F27"><code class="docutils literal notranslate"><span class="pre">Key.F27</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.F28"><code class="docutils literal notranslate"><span class="pre">Key.F28</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.F29"><code class="docutils literal notranslate"><span class="pre">Key.F29</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.F30"><code class="docutils literal notranslate"><span class="pre">Key.F30</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.F31"><code class="docutils literal notranslate"><span class="pre">Key.F31</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.F32"><code class="docutils literal notranslate"><span class="pre">Key.F32</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.F33"><code class="docutils literal notranslate"><span class="pre">Key.F33</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.F34"><code class="docutils literal notranslate"><span class="pre">Key.F34</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.F35"><code class="docutils literal notranslate"><span class="pre">Key.F35</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.ESCAPE"><code class="docutils literal notranslate"><span class="pre">Key.ESCAPE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.INSERT"><code class="docutils literal notranslate"><span class="pre">Key.INSERT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.DELETE"><code class="docutils literal notranslate"><span class="pre">Key.DELETE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.HOME"><code class="docutils literal notranslate"><span class="pre">Key.HOME</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.END"><code class="docutils literal notranslate"><span class="pre">Key.END</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.PAGE_UP"><code class="docutils literal notranslate"><span class="pre">Key.PAGE_UP</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.PAGE_DOWN"><code class="docutils literal notranslate"><span class="pre">Key.PAGE_DOWN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.NP_INSERT"><code class="docutils literal notranslate"><span class="pre">Key.NP_INSERT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.NP_DELETE"><code class="docutils literal notranslate"><span class="pre">Key.NP_DELETE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.NP_HOME"><code class="docutils literal notranslate"><span class="pre">Key.NP_HOME</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.NP_END"><code class="docutils literal notranslate"><span class="pre">Key.NP_END</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.NP_PAGE_UP"><code class="docutils literal notranslate"><span class="pre">Key.NP_PAGE_UP</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.NP_PAGE_DOWN"><code class="docutils literal notranslate"><span class="pre">Key.NP_PAGE_DOWN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.NP_LEFT"><code class="docutils literal notranslate"><span class="pre">Key.NP_LEFT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.NP_RIGHT"><code class="docutils literal notranslate"><span class="pre">Key.NP_RIGHT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.NP_UP"><code class="docutils literal notranslate"><span class="pre">Key.NP_UP</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.NP_DOWN"><code class="docutils literal notranslate"><span class="pre">Key.NP_DOWN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.NP_DIVIDE"><code class="docutils literal notranslate"><span class="pre">Key.NP_DIVIDE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.NP_MULTIPLY"><code class="docutils literal notranslate"><span class="pre">Key.NP_MULTIPLY</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.NP_ADD"><code class="docutils literal notranslate"><span class="pre">Key.NP_ADD</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.NP_SUBTRACT"><code class="docutils literal notranslate"><span class="pre">Key.NP_SUBTRACT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.NP_5"><code class="docutils literal notranslate"><span class="pre">Key.NP_5</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autokey.model.key.Key.is_key"><code class="docutils literal notranslate"><span class="pre">Key.is_key()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mouse.html">Mouse API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mouse.html#buttons">Buttons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="store.html">Store API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qtdialog.html">QtDialog API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qtclipboard.html">QtClipboard API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gtkdialog.html">GtkDialog API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gtkclipboard.html">GtkClipboard API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="system.html">System API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="window.html">Window API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="engine.html">Engine API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="highlevel.html">HighLevel API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common.html">Common API</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">AutoKey</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../api.html">Autokey API</a></li>
+      <li class="breadcrumb-item active">Keyboard API</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/autokey/autokey.github.io/blob/master/api/keyboard.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+<div class="ak-archive-banner">
+  This is the documentation for AutoKey 0.96.0, a previous version.
+  <a href="../../../index.html">Go to the current documentation</a>
+  or <a href="../../../previous/index.html">see all previous versions</a>.
+</div>
+
+           <div itemprop="articleBody">
+             
+  <section id="module-autokey.common">
+<span id="keyboard-api"></span><h1>Keyboard API<a class="headerlink" href="#module-autokey.common" title="Link to this heading"></a></h1>
+<dl class="py class" id="module-autokey.scripting">
+<span id="module-autokey.gtkapp"></span><dt class="sig sig-object py" id="autokey.scripting.Keyboard">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">autokey.scripting.</span></span><span class="sig-name descname"><span class="pre">Keyboard</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mediator</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/autokey/scripting/keyboard.html#Keyboard"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#autokey.scripting.Keyboard" title="Link to this definition"></a></dt>
+<dd><p>Provides access to the keyboard for event generation.</p>
+<dl class="py class enum">
+<dt class="sig sig-object py" id="autokey.scripting.Keyboard.SendMode">
+<em class="property"><span class="pre">enum</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SendMode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autokey.scripting.Keyboard.SendMode" title="Link to this definition"></a></dt>
+<dd><p>Enumeration class for phrase send modes</p>
+<p>KEYBOARD: Send using key events
+CB_CTRL_V: Send via clipboard and paste with Ctrl+v
+CB_CTRL_SHIFT_V: Send via clipboard and paste with Ctrl+Shift+v
+SELECTION: Send via X selection and paste with middle mouse button</p>
+<p>Valid values are as follows:</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.scripting.Keyboard.SendMode.KEYBOARD">
+<span class="sig-name descname"><span class="pre">KEYBOARD</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;SendMode.KEYBOARD:</span> <span class="pre">'kb'&gt;</span></em><a class="headerlink" href="#autokey.scripting.Keyboard.SendMode.KEYBOARD" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.scripting.Keyboard.SendMode.CB_CTRL_V">
+<span class="sig-name descname"><span class="pre">CB_CTRL_V</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;SendMode.CB_CTRL_V:</span> <span class="pre">'&lt;ctrl&gt;+v'&gt;</span></em><a class="headerlink" href="#autokey.scripting.Keyboard.SendMode.CB_CTRL_V" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.scripting.Keyboard.SendMode.CB_CTRL_SHIFT_V">
+<span class="sig-name descname"><span class="pre">CB_CTRL_SHIFT_V</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;SendMode.CB_CTRL_SHIFT_V:</span> <span class="pre">'&lt;ctrl&gt;+&lt;shift&gt;+v'&gt;</span></em><a class="headerlink" href="#autokey.scripting.Keyboard.SendMode.CB_CTRL_SHIFT_V" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.scripting.Keyboard.SendMode.CB_SHIFT_INSERT">
+<span class="sig-name descname"><span class="pre">CB_SHIFT_INSERT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;SendMode.CB_SHIFT_INSERT:</span> <span class="pre">'&lt;shift&gt;+&lt;insert&gt;'&gt;</span></em><a class="headerlink" href="#autokey.scripting.Keyboard.SendMode.CB_SHIFT_INSERT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.scripting.Keyboard.SendMode.SELECTION">
+<span class="sig-name descname"><span class="pre">SELECTION</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;SendMode.SELECTION:</span> <span class="pre">None&gt;</span></em><a class="headerlink" href="#autokey.scripting.Keyboard.SendMode.SELECTION" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autokey.scripting.Keyboard.fake_keypress">
+<span class="sig-name descname"><span class="pre">fake_keypress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">repeat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/autokey/scripting/keyboard.html#Keyboard.fake_keypress"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#autokey.scripting.Keyboard.fake_keypress" title="Link to this definition"></a></dt>
+<dd><p>Fake a keypress</p>
+<p>Usage: <code class="xref py py-obj docutils literal notranslate"><span class="pre">keyboard.fake_keypress(key,</span> <span class="pre">repeat=1)</span></code></p>
+<p>Uses XTest to ‘fake’ a keypress. This is useful to send keypresses to some
+applications which won’t respond to keyboard.send_key()</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> – they key to be sent (e.g. “s” or “&lt;enter&gt;”)</p></li>
+<li><p><strong>repeat</strong> – number of times to repeat the key event</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autokey.scripting.Keyboard.press_key">
+<span class="sig-name descname"><span class="pre">press_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/autokey/scripting/keyboard.html#Keyboard.press_key"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#autokey.scripting.Keyboard.press_key" title="Link to this definition"></a></dt>
+<dd><p>Send a key down event</p>
+<p>Usage: <code class="xref py py-obj docutils literal notranslate"><span class="pre">keyboard.press_key(key)</span></code></p>
+<p>The key will be treated as down until a matching release_key() is sent.
+:param key: they key to be pressed (e.g. “s” or “&lt;enter&gt;”)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autokey.scripting.Keyboard.release_key">
+<span class="sig-name descname"><span class="pre">release_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/autokey/scripting/keyboard.html#Keyboard.release_key"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#autokey.scripting.Keyboard.release_key" title="Link to this definition"></a></dt>
+<dd><p>Send a key up event</p>
+<p>Usage: <code class="xref py py-obj docutils literal notranslate"><span class="pre">keyboard.release_key(key)</span></code></p>
+<p>If the specified key was not made down using press_key(), the event will be
+ignored.
+:param key: they key to be released (e.g. “s” or “&lt;enter&gt;”)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autokey.scripting.Keyboard.send_key">
+<span class="sig-name descname"><span class="pre">send_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">repeat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/autokey/scripting/keyboard.html#Keyboard.send_key"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#autokey.scripting.Keyboard.send_key" title="Link to this definition"></a></dt>
+<dd><p>Send a keyboard event</p>
+<p>Usage: <code class="xref py py-obj docutils literal notranslate"><span class="pre">keyboard.send_key(key,</span> <span class="pre">repeat=1)</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> – they key to be sent (e.g. “s” or “&lt;enter&gt;”)</p></li>
+<li><p><strong>repeat</strong> – number of times to repeat the key event</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autokey.scripting.Keyboard.send_keys">
+<span class="sig-name descname"><span class="pre">send_keys</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key_string</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">send_mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#autokey.scripting.Keyboard.SendMode" title="autokey.model.phrase.SendMode"><span class="pre">SendMode</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">SendMode.KEYBOARD</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/autokey/scripting/keyboard.html#Keyboard.send_keys"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#autokey.scripting.Keyboard.send_keys" title="Link to this definition"></a></dt>
+<dd><p>Send a sequence of keys via keyboard events as the default or via clipboard pasting.
+Because the clipboard can only contain
+printable characters, special keys and embedded key combinations can only be sent in keyboard mode.</p>
+<p>Trying to send special keys using a clipboard pasting method will paste the literal representation
+(e.g. “&lt;ctrl&gt;+&lt;f11&gt;”) instead of the actual special key or key combination.</p>
+<p>Usage: <code class="xref py py-obj docutils literal notranslate"><span class="pre">keyboard.send_keys(keyString)</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key_string</strong> – string of keys to send. Special keys are only possible in keyboard mode.</p></li>
+<li><p><strong>send_mode</strong> – Determines how the string is sent.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autokey.scripting.Keyboard.wait_for_keyevent">
+<span class="sig-name descname"><span class="pre">wait_for_keyevent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">check</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeOut</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/autokey/scripting/keyboard.html#Keyboard.wait_for_keyevent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#autokey.scripting.Keyboard.wait_for_keyevent" title="Link to this definition"></a></dt>
+<dd><p>Wait for a key event, potentially accumulating the intervening characters
+Usage: <code class="xref py py-obj docutils literal notranslate"><span class="pre">keyboard.wait_for_keypress(self,</span> <span class="pre">check,</span> <span class="pre">name=None,</span> <span class="pre">timeOut=10.0)</span></code>
+:param check: a function that returns True or False to signify we’ve finished waiting
+:param name: only one waiter can have this name. Used to prevent more threads waiting on this.
+:param timeOut: maximum time, in seconds, to wait for the keypress to occur
+Example:
+# Accumulate the traditional emacs C-u prefix arguments
+# See <a class="reference external" href="https://www.gnu.org/software/emacs/manual/html_node/elisp/Prefix-Command-Arguments.html">https://www.gnu.org/software/emacs/manual/html_node/elisp/Prefix-Command-Arguments.html</a>
+def check(waiter,rawKey,modifiers,key,*args):</p>
+<blockquote>
+<div><p>isCtrlU = (key == ‘u’ and len(modifiers) == 1 and modifiers[0] == ‘&lt;ctrl&gt;’)
+if isCtrlU: # If we get here, they’ve already pressed C-u at least 2x</p>
+<blockquote>
+<div><dl class="simple">
+<dt>try:</dt><dd><p>val = int(waiter.result) * 4
+waiter.result = str(val)</p>
+</dd>
+<dt>except ValueError:</dt><dd><p>waiter.result = “16”</p>
+</dd>
+</dl>
+<p>return False</p>
+</div></blockquote>
+<dl>
+<dt>elif any(m == “&lt;ctrl&gt;” or m == “&lt;alt&gt;” or m == “&lt;meta&gt;” or m == “&lt;super&gt;” or m == “&lt;hyper&gt;” for m in modifiers):</dt><dd><p># Some other control character is an indication we’re done.
+if waiter.result is None or waiter.result == “”:</p>
+<blockquote>
+<div><p>waiter.result = “4”</p>
+</div></blockquote>
+<p>store.set_global_value(“emacs-prefix-arg”, waiter.result)
+return True</p>
+</dd>
+<dt>else: # accumulate as a string</dt><dd><p>waiter.result = waiter.result + key
+return False</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>keyboard.wait_for_keyevent(check, “emacs-prefix”)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autokey.scripting.Keyboard.wait_for_keypress">
+<span class="sig-name descname"><span class="pre">wait_for_keypress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modifiers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeOut</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/autokey/scripting/keyboard.html#Keyboard.wait_for_keypress"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#autokey.scripting.Keyboard.wait_for_keypress" title="Link to this definition"></a></dt>
+<dd><p>Wait for a keypress or key combination</p>
+<p>Usage: <code class="xref py py-obj docutils literal notranslate"><span class="pre">keyboard.wait_for_keypress(self,</span> <span class="pre">key,</span> <span class="pre">modifiers=[],</span> <span class="pre">timeOut=10.0)</span></code></p>
+<p>Note: this function cannot be used to wait for modifier keys on their own</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> – they key to wait for</p></li>
+<li><p><strong>modifiers</strong> – list of modifiers that should be pressed with the key</p></li>
+<li><p><strong>timeOut</strong> – maximum time, in seconds, to wait for the keypress to occur</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="keys">
+<h1>Keys<a class="headerlink" href="#keys" title="Link to this heading"></a></h1>
+<dl class="py class enum">
+<dt class="sig sig-object py" id="autokey.model.key.Key">
+<em class="property"><span class="pre">enum</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">autokey.model.key.</span></span><span class="sig-name descname"><span class="pre">Key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/autokey/model/key.html#Key"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#autokey.model.key.Key" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Member Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+</dl>
+<p>Valid values are as follows:</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.LEFT">
+<span class="sig-name descname"><span class="pre">LEFT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.LEFT:</span> <span class="pre">'&lt;left&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.LEFT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.RIGHT">
+<span class="sig-name descname"><span class="pre">RIGHT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.RIGHT:</span> <span class="pre">'&lt;right&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.RIGHT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.UP">
+<span class="sig-name descname"><span class="pre">UP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.UP:</span> <span class="pre">'&lt;up&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.UP" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.DOWN">
+<span class="sig-name descname"><span class="pre">DOWN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.DOWN:</span> <span class="pre">'&lt;down&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.DOWN" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.BACKSPACE">
+<span class="sig-name descname"><span class="pre">BACKSPACE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.BACKSPACE:</span> <span class="pre">'&lt;backspace&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.BACKSPACE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.TAB">
+<span class="sig-name descname"><span class="pre">TAB</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.TAB:</span> <span class="pre">'&lt;tab&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.TAB" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.ENTER">
+<span class="sig-name descname"><span class="pre">ENTER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.ENTER:</span> <span class="pre">'&lt;enter&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.ENTER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.SCROLL_LOCK">
+<span class="sig-name descname"><span class="pre">SCROLL_LOCK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.SCROLL_LOCK:</span> <span class="pre">'&lt;scroll_lock&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.SCROLL_LOCK" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.PRINT_SCREEN">
+<span class="sig-name descname"><span class="pre">PRINT_SCREEN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.PRINT_SCREEN:</span> <span class="pre">'&lt;print_screen&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.PRINT_SCREEN" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.PAUSE">
+<span class="sig-name descname"><span class="pre">PAUSE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.PAUSE:</span> <span class="pre">'&lt;pause&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.PAUSE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.MENU">
+<span class="sig-name descname"><span class="pre">MENU</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.MENU:</span> <span class="pre">'&lt;menu&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.MENU" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.CONTROL">
+<span class="sig-name descname"><span class="pre">CONTROL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.CONTROL:</span> <span class="pre">'&lt;ctrl&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.CONTROL" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.ALT">
+<span class="sig-name descname"><span class="pre">ALT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.ALT:</span> <span class="pre">'&lt;alt&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.ALT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.ALT_GR">
+<span class="sig-name descname"><span class="pre">ALT_GR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.ALT_GR:</span> <span class="pre">'&lt;alt_gr&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.ALT_GR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.SHIFT">
+<span class="sig-name descname"><span class="pre">SHIFT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.SHIFT:</span> <span class="pre">'&lt;shift&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.SHIFT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.SUPER">
+<span class="sig-name descname"><span class="pre">SUPER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.SUPER:</span> <span class="pre">'&lt;super&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.SUPER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.HYPER">
+<span class="sig-name descname"><span class="pre">HYPER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.HYPER:</span> <span class="pre">'&lt;hyper&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.HYPER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.CAPSLOCK">
+<span class="sig-name descname"><span class="pre">CAPSLOCK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.CAPSLOCK:</span> <span class="pre">'&lt;capslock&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.CAPSLOCK" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.NUMLOCK">
+<span class="sig-name descname"><span class="pre">NUMLOCK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.NUMLOCK:</span> <span class="pre">'&lt;numlock&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.NUMLOCK" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.META">
+<span class="sig-name descname"><span class="pre">META</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.META:</span> <span class="pre">'&lt;meta&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.META" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.F1">
+<span class="sig-name descname"><span class="pre">F1</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.F1:</span> <span class="pre">'&lt;f1&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.F1" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.F2">
+<span class="sig-name descname"><span class="pre">F2</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.F2:</span> <span class="pre">'&lt;f2&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.F2" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.F3">
+<span class="sig-name descname"><span class="pre">F3</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.F3:</span> <span class="pre">'&lt;f3&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.F3" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.F4">
+<span class="sig-name descname"><span class="pre">F4</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.F4:</span> <span class="pre">'&lt;f4&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.F4" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.F5">
+<span class="sig-name descname"><span class="pre">F5</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.F5:</span> <span class="pre">'&lt;f5&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.F5" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.F6">
+<span class="sig-name descname"><span class="pre">F6</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.F6:</span> <span class="pre">'&lt;f6&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.F6" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.F7">
+<span class="sig-name descname"><span class="pre">F7</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.F7:</span> <span class="pre">'&lt;f7&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.F7" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.F8">
+<span class="sig-name descname"><span class="pre">F8</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.F8:</span> <span class="pre">'&lt;f8&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.F8" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.F9">
+<span class="sig-name descname"><span class="pre">F9</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.F9:</span> <span class="pre">'&lt;f9&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.F9" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.F10">
+<span class="sig-name descname"><span class="pre">F10</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.F10:</span> <span class="pre">'&lt;f10&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.F10" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.F11">
+<span class="sig-name descname"><span class="pre">F11</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.F11:</span> <span class="pre">'&lt;f11&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.F11" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.F12">
+<span class="sig-name descname"><span class="pre">F12</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.F12:</span> <span class="pre">'&lt;f12&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.F12" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.F13">
+<span class="sig-name descname"><span class="pre">F13</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.F13:</span> <span class="pre">'&lt;f13&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.F13" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.F14">
+<span class="sig-name descname"><span class="pre">F14</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.F14:</span> <span class="pre">'&lt;f14&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.F14" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.F15">
+<span class="sig-name descname"><span class="pre">F15</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.F15:</span> <span class="pre">'&lt;f15&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.F15" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.F16">
+<span class="sig-name descname"><span class="pre">F16</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.F16:</span> <span class="pre">'&lt;f16&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.F16" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.F17">
+<span class="sig-name descname"><span class="pre">F17</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.F17:</span> <span class="pre">'&lt;f17&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.F17" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.F18">
+<span class="sig-name descname"><span class="pre">F18</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.F18:</span> <span class="pre">'&lt;f18&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.F18" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.F19">
+<span class="sig-name descname"><span class="pre">F19</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.F19:</span> <span class="pre">'&lt;f19&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.F19" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.F20">
+<span class="sig-name descname"><span class="pre">F20</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.F20:</span> <span class="pre">'&lt;f20&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.F20" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.F21">
+<span class="sig-name descname"><span class="pre">F21</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.F21:</span> <span class="pre">'&lt;f21&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.F21" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.F22">
+<span class="sig-name descname"><span class="pre">F22</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.F22:</span> <span class="pre">'&lt;f22&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.F22" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.F23">
+<span class="sig-name descname"><span class="pre">F23</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.F23:</span> <span class="pre">'&lt;f23&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.F23" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.F24">
+<span class="sig-name descname"><span class="pre">F24</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.F24:</span> <span class="pre">'&lt;f24&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.F24" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.F25">
+<span class="sig-name descname"><span class="pre">F25</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.F25:</span> <span class="pre">'&lt;f25&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.F25" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.F26">
+<span class="sig-name descname"><span class="pre">F26</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.F26:</span> <span class="pre">'&lt;f26&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.F26" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.F27">
+<span class="sig-name descname"><span class="pre">F27</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.F27:</span> <span class="pre">'&lt;f27&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.F27" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.F28">
+<span class="sig-name descname"><span class="pre">F28</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.F28:</span> <span class="pre">'&lt;f28&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.F28" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.F29">
+<span class="sig-name descname"><span class="pre">F29</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.F29:</span> <span class="pre">'&lt;f29&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.F29" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.F30">
+<span class="sig-name descname"><span class="pre">F30</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.F30:</span> <span class="pre">'&lt;f30&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.F30" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.F31">
+<span class="sig-name descname"><span class="pre">F31</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.F31:</span> <span class="pre">'&lt;f31&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.F31" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.F32">
+<span class="sig-name descname"><span class="pre">F32</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.F32:</span> <span class="pre">'&lt;f32&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.F32" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.F33">
+<span class="sig-name descname"><span class="pre">F33</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.F33:</span> <span class="pre">'&lt;f33&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.F33" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.F34">
+<span class="sig-name descname"><span class="pre">F34</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.F34:</span> <span class="pre">'&lt;f34&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.F34" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.F35">
+<span class="sig-name descname"><span class="pre">F35</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.F35:</span> <span class="pre">'&lt;f35&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.F35" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.ESCAPE">
+<span class="sig-name descname"><span class="pre">ESCAPE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.ESCAPE:</span> <span class="pre">'&lt;escape&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.ESCAPE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.INSERT">
+<span class="sig-name descname"><span class="pre">INSERT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.INSERT:</span> <span class="pre">'&lt;insert&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.INSERT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.DELETE">
+<span class="sig-name descname"><span class="pre">DELETE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.DELETE:</span> <span class="pre">'&lt;delete&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.DELETE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.HOME">
+<span class="sig-name descname"><span class="pre">HOME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.HOME:</span> <span class="pre">'&lt;home&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.HOME" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.END">
+<span class="sig-name descname"><span class="pre">END</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.END:</span> <span class="pre">'&lt;end&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.END" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.PAGE_UP">
+<span class="sig-name descname"><span class="pre">PAGE_UP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.PAGE_UP:</span> <span class="pre">'&lt;page_up&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.PAGE_UP" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.PAGE_DOWN">
+<span class="sig-name descname"><span class="pre">PAGE_DOWN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.PAGE_DOWN:</span> <span class="pre">'&lt;page_down&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.PAGE_DOWN" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.NP_INSERT">
+<span class="sig-name descname"><span class="pre">NP_INSERT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.NP_INSERT:</span> <span class="pre">'&lt;np_insert&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.NP_INSERT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.NP_DELETE">
+<span class="sig-name descname"><span class="pre">NP_DELETE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.NP_DELETE:</span> <span class="pre">'&lt;np_delete&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.NP_DELETE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.NP_HOME">
+<span class="sig-name descname"><span class="pre">NP_HOME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.NP_HOME:</span> <span class="pre">'&lt;np_home&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.NP_HOME" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.NP_END">
+<span class="sig-name descname"><span class="pre">NP_END</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.NP_END:</span> <span class="pre">'&lt;np_end&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.NP_END" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.NP_PAGE_UP">
+<span class="sig-name descname"><span class="pre">NP_PAGE_UP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.NP_PAGE_UP:</span> <span class="pre">'&lt;np_page_up&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.NP_PAGE_UP" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.NP_PAGE_DOWN">
+<span class="sig-name descname"><span class="pre">NP_PAGE_DOWN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.NP_PAGE_DOWN:</span> <span class="pre">'&lt;np_page_down&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.NP_PAGE_DOWN" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.NP_LEFT">
+<span class="sig-name descname"><span class="pre">NP_LEFT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.NP_LEFT:</span> <span class="pre">'&lt;np_left&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.NP_LEFT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.NP_RIGHT">
+<span class="sig-name descname"><span class="pre">NP_RIGHT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.NP_RIGHT:</span> <span class="pre">'&lt;np_right&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.NP_RIGHT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.NP_UP">
+<span class="sig-name descname"><span class="pre">NP_UP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.NP_UP:</span> <span class="pre">'&lt;np_up&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.NP_UP" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.NP_DOWN">
+<span class="sig-name descname"><span class="pre">NP_DOWN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.NP_DOWN:</span> <span class="pre">'&lt;np_down&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.NP_DOWN" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.NP_DIVIDE">
+<span class="sig-name descname"><span class="pre">NP_DIVIDE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.NP_DIVIDE:</span> <span class="pre">'&lt;np_divide&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.NP_DIVIDE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.NP_MULTIPLY">
+<span class="sig-name descname"><span class="pre">NP_MULTIPLY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.NP_MULTIPLY:</span> <span class="pre">'&lt;np_multiply&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.NP_MULTIPLY" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.NP_ADD">
+<span class="sig-name descname"><span class="pre">NP_ADD</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.NP_ADD:</span> <span class="pre">'&lt;np_add&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.NP_ADD" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.NP_SUBTRACT">
+<span class="sig-name descname"><span class="pre">NP_SUBTRACT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.NP_SUBTRACT:</span> <span class="pre">'&lt;np_subtract&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.NP_SUBTRACT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autokey.model.key.Key.NP_5">
+<span class="sig-name descname"><span class="pre">NP_5</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Key.NP_5:</span> <span class="pre">'&lt;np_5&gt;'&gt;</span></em><a class="headerlink" href="#autokey.model.key.Key.NP_5" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code> and its members also have the following methods:</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="autokey.model.key.Key.is_key">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key_string</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/autokey/model/key.html#Key.is_key"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#autokey.model.key.Key.is_key" title="Link to this definition"></a></dt>
+<dd><p>Returns if a string represents a key.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../api.html" class="btn btn-neutral float-left" title="Autokey API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="mouse.html" class="btn btn-neutral float-right" title="Mouse API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+  <p>
+    &#169; Copyright 2023, 
+    <a href="https://github.com/autokey/autokey/blob/master/ACKNOWLEDGMENTS" target="_blank" rel="noopener noreferrer" style="color: #2980b9; text-decoration: underline;">various</a>.
+  </p>
+
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

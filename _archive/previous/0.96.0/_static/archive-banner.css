@@ -1,0 +1,10 @@
+.ak-archive-banner {
+  background: #fff4d6;
+  border: 1px solid #e0c26b;
+  border-left: 5px solid #c9962b;
+  color: #4a3b0b;
+  padding: 10px 14px;
+  margin: 0 0 20px 0;
+  font-size: 90%;
+}
+.ak-archive-banner a { color: #1f5f99; font-weight: bold; }

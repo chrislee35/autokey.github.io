@@ -1,0 +1,448 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome to AutoKey! &mdash; AutoKey 0.96.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/archive-banner.css?v=a835967c" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=ebd97e04"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Introduction to Autokey" href="intro.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#">
+            
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction to Autokey</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html#common-actions">Common actions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">Autokey API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">AutoKey</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Welcome to AutoKey!</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/autokey/autokey.github.io/blob/master/index.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+<div class="ak-archive-banner">
+  This is the documentation for AutoKey 0.96.0, a previous version.
+  <a href="../../index.html">Go to the current documentation</a>
+  or <a href="../../previous/index.html">see all previous versions</a>.
+</div>
+
+           <div itemprop="articleBody">
+             
+  <section id="welcome-to-autokey">
+<h1>Welcome to AutoKey!<a class="headerlink" href="#welcome-to-autokey" title="Link to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction to Autokey</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#glossary-of-autokey-terms">Glossary of AutoKey Terms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#how-are-things-organized">How are things organized?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="intro.html#how-to-source-settings-on-a-new-computer">How to “source” settings on a new computer?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#why-would-you-use-autokey-and-what-does-it-do-for-you">Why Would You Use AutoKey And What Does It Do For You?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="intro.html#some-examples">Some examples:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#what-is-autokey-and-how-does-it-work">What Is AutoKey and How Does It Work?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html#common-actions">Common actions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#adding-abbreviations">Adding Abbreviations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">Autokey API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/keyboard.html">Keyboard API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/keyboard.html#autokey.scripting.Keyboard"><code class="docutils literal notranslate"><span class="pre">Keyboard</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.scripting.Keyboard.SendMode"><code class="docutils literal notranslate"><span class="pre">Keyboard.SendMode</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="api/keyboard.html#autokey.scripting.Keyboard.SendMode.KEYBOARD"><code class="docutils literal notranslate"><span class="pre">Keyboard.SendMode.KEYBOARD</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="api/keyboard.html#autokey.scripting.Keyboard.SendMode.CB_CTRL_V"><code class="docutils literal notranslate"><span class="pre">Keyboard.SendMode.CB_CTRL_V</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="api/keyboard.html#autokey.scripting.Keyboard.SendMode.CB_CTRL_SHIFT_V"><code class="docutils literal notranslate"><span class="pre">Keyboard.SendMode.CB_CTRL_SHIFT_V</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="api/keyboard.html#autokey.scripting.Keyboard.SendMode.CB_SHIFT_INSERT"><code class="docutils literal notranslate"><span class="pre">Keyboard.SendMode.CB_SHIFT_INSERT</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="api/keyboard.html#autokey.scripting.Keyboard.SendMode.SELECTION"><code class="docutils literal notranslate"><span class="pre">Keyboard.SendMode.SELECTION</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.scripting.Keyboard.fake_keypress"><code class="docutils literal notranslate"><span class="pre">Keyboard.fake_keypress()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.scripting.Keyboard.press_key"><code class="docutils literal notranslate"><span class="pre">Keyboard.press_key()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.scripting.Keyboard.release_key"><code class="docutils literal notranslate"><span class="pre">Keyboard.release_key()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.scripting.Keyboard.send_key"><code class="docutils literal notranslate"><span class="pre">Keyboard.send_key()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.scripting.Keyboard.send_keys"><code class="docutils literal notranslate"><span class="pre">Keyboard.send_keys()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.scripting.Keyboard.wait_for_keyevent"><code class="docutils literal notranslate"><span class="pre">Keyboard.wait_for_keyevent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.scripting.Keyboard.wait_for_keypress"><code class="docutils literal notranslate"><span class="pre">Keyboard.wait_for_keypress()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/keyboard.html#keys">Keys</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key"><code class="docutils literal notranslate"><span class="pre">Key</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.LEFT"><code class="docutils literal notranslate"><span class="pre">Key.LEFT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.RIGHT"><code class="docutils literal notranslate"><span class="pre">Key.RIGHT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.UP"><code class="docutils literal notranslate"><span class="pre">Key.UP</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.DOWN"><code class="docutils literal notranslate"><span class="pre">Key.DOWN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.BACKSPACE"><code class="docutils literal notranslate"><span class="pre">Key.BACKSPACE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.TAB"><code class="docutils literal notranslate"><span class="pre">Key.TAB</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.ENTER"><code class="docutils literal notranslate"><span class="pre">Key.ENTER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.SCROLL_LOCK"><code class="docutils literal notranslate"><span class="pre">Key.SCROLL_LOCK</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.PRINT_SCREEN"><code class="docutils literal notranslate"><span class="pre">Key.PRINT_SCREEN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.PAUSE"><code class="docutils literal notranslate"><span class="pre">Key.PAUSE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.MENU"><code class="docutils literal notranslate"><span class="pre">Key.MENU</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.CONTROL"><code class="docutils literal notranslate"><span class="pre">Key.CONTROL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.ALT"><code class="docutils literal notranslate"><span class="pre">Key.ALT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.ALT_GR"><code class="docutils literal notranslate"><span class="pre">Key.ALT_GR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.SHIFT"><code class="docutils literal notranslate"><span class="pre">Key.SHIFT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.SUPER"><code class="docutils literal notranslate"><span class="pre">Key.SUPER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.HYPER"><code class="docutils literal notranslate"><span class="pre">Key.HYPER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.CAPSLOCK"><code class="docutils literal notranslate"><span class="pre">Key.CAPSLOCK</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.NUMLOCK"><code class="docutils literal notranslate"><span class="pre">Key.NUMLOCK</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.META"><code class="docutils literal notranslate"><span class="pre">Key.META</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.F1"><code class="docutils literal notranslate"><span class="pre">Key.F1</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.F2"><code class="docutils literal notranslate"><span class="pre">Key.F2</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.F3"><code class="docutils literal notranslate"><span class="pre">Key.F3</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.F4"><code class="docutils literal notranslate"><span class="pre">Key.F4</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.F5"><code class="docutils literal notranslate"><span class="pre">Key.F5</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.F6"><code class="docutils literal notranslate"><span class="pre">Key.F6</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.F7"><code class="docutils literal notranslate"><span class="pre">Key.F7</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.F8"><code class="docutils literal notranslate"><span class="pre">Key.F8</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.F9"><code class="docutils literal notranslate"><span class="pre">Key.F9</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.F10"><code class="docutils literal notranslate"><span class="pre">Key.F10</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.F11"><code class="docutils literal notranslate"><span class="pre">Key.F11</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.F12"><code class="docutils literal notranslate"><span class="pre">Key.F12</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.F13"><code class="docutils literal notranslate"><span class="pre">Key.F13</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.F14"><code class="docutils literal notranslate"><span class="pre">Key.F14</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.F15"><code class="docutils literal notranslate"><span class="pre">Key.F15</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.F16"><code class="docutils literal notranslate"><span class="pre">Key.F16</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.F17"><code class="docutils literal notranslate"><span class="pre">Key.F17</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.F18"><code class="docutils literal notranslate"><span class="pre">Key.F18</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.F19"><code class="docutils literal notranslate"><span class="pre">Key.F19</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.F20"><code class="docutils literal notranslate"><span class="pre">Key.F20</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.F21"><code class="docutils literal notranslate"><span class="pre">Key.F21</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.F22"><code class="docutils literal notranslate"><span class="pre">Key.F22</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.F23"><code class="docutils literal notranslate"><span class="pre">Key.F23</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.F24"><code class="docutils literal notranslate"><span class="pre">Key.F24</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.F25"><code class="docutils literal notranslate"><span class="pre">Key.F25</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.F26"><code class="docutils literal notranslate"><span class="pre">Key.F26</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.F27"><code class="docutils literal notranslate"><span class="pre">Key.F27</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.F28"><code class="docutils literal notranslate"><span class="pre">Key.F28</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.F29"><code class="docutils literal notranslate"><span class="pre">Key.F29</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.F30"><code class="docutils literal notranslate"><span class="pre">Key.F30</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.F31"><code class="docutils literal notranslate"><span class="pre">Key.F31</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.F32"><code class="docutils literal notranslate"><span class="pre">Key.F32</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.F33"><code class="docutils literal notranslate"><span class="pre">Key.F33</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.F34"><code class="docutils literal notranslate"><span class="pre">Key.F34</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.F35"><code class="docutils literal notranslate"><span class="pre">Key.F35</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.ESCAPE"><code class="docutils literal notranslate"><span class="pre">Key.ESCAPE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.INSERT"><code class="docutils literal notranslate"><span class="pre">Key.INSERT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.DELETE"><code class="docutils literal notranslate"><span class="pre">Key.DELETE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.HOME"><code class="docutils literal notranslate"><span class="pre">Key.HOME</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.END"><code class="docutils literal notranslate"><span class="pre">Key.END</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.PAGE_UP"><code class="docutils literal notranslate"><span class="pre">Key.PAGE_UP</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.PAGE_DOWN"><code class="docutils literal notranslate"><span class="pre">Key.PAGE_DOWN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.NP_INSERT"><code class="docutils literal notranslate"><span class="pre">Key.NP_INSERT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.NP_DELETE"><code class="docutils literal notranslate"><span class="pre">Key.NP_DELETE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.NP_HOME"><code class="docutils literal notranslate"><span class="pre">Key.NP_HOME</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.NP_END"><code class="docutils literal notranslate"><span class="pre">Key.NP_END</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.NP_PAGE_UP"><code class="docutils literal notranslate"><span class="pre">Key.NP_PAGE_UP</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.NP_PAGE_DOWN"><code class="docutils literal notranslate"><span class="pre">Key.NP_PAGE_DOWN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.NP_LEFT"><code class="docutils literal notranslate"><span class="pre">Key.NP_LEFT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.NP_RIGHT"><code class="docutils literal notranslate"><span class="pre">Key.NP_RIGHT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.NP_UP"><code class="docutils literal notranslate"><span class="pre">Key.NP_UP</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.NP_DOWN"><code class="docutils literal notranslate"><span class="pre">Key.NP_DOWN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.NP_DIVIDE"><code class="docutils literal notranslate"><span class="pre">Key.NP_DIVIDE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.NP_MULTIPLY"><code class="docutils literal notranslate"><span class="pre">Key.NP_MULTIPLY</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.NP_ADD"><code class="docutils literal notranslate"><span class="pre">Key.NP_ADD</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.NP_SUBTRACT"><code class="docutils literal notranslate"><span class="pre">Key.NP_SUBTRACT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.NP_5"><code class="docutils literal notranslate"><span class="pre">Key.NP_5</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/keyboard.html#autokey.model.key.Key.is_key"><code class="docutils literal notranslate"><span class="pre">Key.is_key()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/mouse.html">Mouse API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/mouse.html#autokey.scripting.Mouse"><code class="docutils literal notranslate"><span class="pre">Mouse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/mouse.html#autokey.scripting.Mouse.Button"><code class="docutils literal notranslate"><span class="pre">Mouse.Button</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="api/mouse.html#autokey.scripting.Mouse.Button.LEFT"><code class="docutils literal notranslate"><span class="pre">Mouse.Button.LEFT</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="api/mouse.html#autokey.scripting.Mouse.Button.MIDDLE"><code class="docutils literal notranslate"><span class="pre">Mouse.Button.MIDDLE</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="api/mouse.html#autokey.scripting.Mouse.Button.RIGHT"><code class="docutils literal notranslate"><span class="pre">Mouse.Button.RIGHT</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="api/mouse.html#autokey.scripting.Mouse.Button.SCROLL_UP"><code class="docutils literal notranslate"><span class="pre">Mouse.Button.SCROLL_UP</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="api/mouse.html#autokey.scripting.Mouse.Button.SCROLL_DOWN"><code class="docutils literal notranslate"><span class="pre">Mouse.Button.SCROLL_DOWN</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="api/mouse.html#autokey.scripting.Mouse.Button.SCROLL_LEFT"><code class="docutils literal notranslate"><span class="pre">Mouse.Button.SCROLL_LEFT</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="api/mouse.html#autokey.scripting.Mouse.Button.SCROLL_RIGHT"><code class="docutils literal notranslate"><span class="pre">Mouse.Button.SCROLL_RIGHT</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="api/mouse.html#autokey.scripting.Mouse.Button.BACKWARD"><code class="docutils literal notranslate"><span class="pre">Mouse.Button.BACKWARD</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="api/mouse.html#autokey.scripting.Mouse.Button.FORWARD"><code class="docutils literal notranslate"><span class="pre">Mouse.Button.FORWARD</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="api/mouse.html#autokey.scripting.Mouse.Button.BUTTON10"><code class="docutils literal notranslate"><span class="pre">Mouse.Button.BUTTON10</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="api/mouse.html#autokey.scripting.Mouse.click_absolute"><code class="docutils literal notranslate"><span class="pre">Mouse.click_absolute()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/mouse.html#autokey.scripting.Mouse.click_relative"><code class="docutils literal notranslate"><span class="pre">Mouse.click_relative()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/mouse.html#autokey.scripting.Mouse.click_relative_self"><code class="docutils literal notranslate"><span class="pre">Mouse.click_relative_self()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/mouse.html#autokey.scripting.Mouse.get_location"><code class="docutils literal notranslate"><span class="pre">Mouse.get_location()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/mouse.html#autokey.scripting.Mouse.get_relative_location"><code class="docutils literal notranslate"><span class="pre">Mouse.get_relative_location()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/mouse.html#autokey.scripting.Mouse.move_cursor"><code class="docutils literal notranslate"><span class="pre">Mouse.move_cursor()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/mouse.html#autokey.scripting.Mouse.move_relative"><code class="docutils literal notranslate"><span class="pre">Mouse.move_relative()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/mouse.html#autokey.scripting.Mouse.move_relative_self"><code class="docutils literal notranslate"><span class="pre">Mouse.move_relative_self()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/mouse.html#autokey.scripting.Mouse.press_button"><code class="docutils literal notranslate"><span class="pre">Mouse.press_button()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/mouse.html#autokey.scripting.Mouse.release_button"><code class="docutils literal notranslate"><span class="pre">Mouse.release_button()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/mouse.html#autokey.scripting.Mouse.scroll_down"><code class="docutils literal notranslate"><span class="pre">Mouse.scroll_down()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/mouse.html#autokey.scripting.Mouse.scroll_up"><code class="docutils literal notranslate"><span class="pre">Mouse.scroll_up()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/mouse.html#autokey.scripting.Mouse.select_area"><code class="docutils literal notranslate"><span class="pre">Mouse.select_area()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/mouse.html#autokey.scripting.Mouse.wait_for_click"><code class="docutils literal notranslate"><span class="pre">Mouse.wait_for_click()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/mouse.html#buttons">Buttons</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/mouse.html#autokey.model.button.Button"><code class="docutils literal notranslate"><span class="pre">Button</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/mouse.html#autokey.model.button.Button.LEFT"><code class="docutils literal notranslate"><span class="pre">Button.LEFT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/mouse.html#autokey.model.button.Button.MIDDLE"><code class="docutils literal notranslate"><span class="pre">Button.MIDDLE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/mouse.html#autokey.model.button.Button.RIGHT"><code class="docutils literal notranslate"><span class="pre">Button.RIGHT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/mouse.html#autokey.model.button.Button.SCROLL_UP"><code class="docutils literal notranslate"><span class="pre">Button.SCROLL_UP</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/mouse.html#autokey.model.button.Button.SCROLL_DOWN"><code class="docutils literal notranslate"><span class="pre">Button.SCROLL_DOWN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/mouse.html#autokey.model.button.Button.SCROLL_LEFT"><code class="docutils literal notranslate"><span class="pre">Button.SCROLL_LEFT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/mouse.html#autokey.model.button.Button.SCROLL_RIGHT"><code class="docutils literal notranslate"><span class="pre">Button.SCROLL_RIGHT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/mouse.html#autokey.model.button.Button.BACKWARD"><code class="docutils literal notranslate"><span class="pre">Button.BACKWARD</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/mouse.html#autokey.model.button.Button.FORWARD"><code class="docutils literal notranslate"><span class="pre">Button.FORWARD</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/mouse.html#autokey.model.button.Button.BUTTON10"><code class="docutils literal notranslate"><span class="pre">Button.BUTTON10</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/store.html">Store API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/store.html#autokey.model.store.Store"><code class="docutils literal notranslate"><span class="pre">Store</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/store.html#autokey.model.store.Store.get_global_value"><code class="docutils literal notranslate"><span class="pre">Store.get_global_value()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/store.html#autokey.model.store.Store.get_value"><code class="docutils literal notranslate"><span class="pre">Store.get_value()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/store.html#autokey.model.store.Store.has_key"><code class="docutils literal notranslate"><span class="pre">Store.has_key()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/store.html#autokey.model.store.Store.remove_global_value"><code class="docutils literal notranslate"><span class="pre">Store.remove_global_value()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/store.html#autokey.model.store.Store.remove_value"><code class="docutils literal notranslate"><span class="pre">Store.remove_value()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/store.html#autokey.model.store.Store.set_global_value"><code class="docutils literal notranslate"><span class="pre">Store.set_global_value()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/store.html#autokey.model.store.Store.set_value"><code class="docutils literal notranslate"><span class="pre">Store.set_value()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/qtdialog.html">QtDialog API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/qtdialog.html#autokey.scripting.dialog_qt.QtDialog"><code class="docutils literal notranslate"><span class="pre">QtDialog</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/qtdialog.html#autokey.scripting.dialog_qt.QtDialog.calendar"><code class="docutils literal notranslate"><span class="pre">QtDialog.calendar()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/qtdialog.html#autokey.scripting.dialog_qt.QtDialog.choose_colour"><code class="docutils literal notranslate"><span class="pre">QtDialog.choose_colour()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/qtdialog.html#autokey.scripting.dialog_qt.QtDialog.choose_directory"><code class="docutils literal notranslate"><span class="pre">QtDialog.choose_directory()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/qtdialog.html#autokey.scripting.dialog_qt.QtDialog.combo_menu"><code class="docutils literal notranslate"><span class="pre">QtDialog.combo_menu()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/qtdialog.html#autokey.scripting.dialog_qt.QtDialog.info_dialog"><code class="docutils literal notranslate"><span class="pre">QtDialog.info_dialog()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/qtdialog.html#autokey.scripting.dialog_qt.QtDialog.input_dialog"><code class="docutils literal notranslate"><span class="pre">QtDialog.input_dialog()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/qtdialog.html#autokey.scripting.dialog_qt.QtDialog.list_menu"><code class="docutils literal notranslate"><span class="pre">QtDialog.list_menu()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/qtdialog.html#autokey.scripting.dialog_qt.QtDialog.list_menu_multi"><code class="docutils literal notranslate"><span class="pre">QtDialog.list_menu_multi()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/qtdialog.html#autokey.scripting.dialog_qt.QtDialog.open_file"><code class="docutils literal notranslate"><span class="pre">QtDialog.open_file()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/qtdialog.html#autokey.scripting.dialog_qt.QtDialog.password_dialog"><code class="docutils literal notranslate"><span class="pre">QtDialog.password_dialog()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/qtdialog.html#autokey.scripting.dialog_qt.QtDialog.save_file"><code class="docutils literal notranslate"><span class="pre">QtDialog.save_file()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/qtclipboard.html">QtClipboard API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/qtclipboard.html#autokey.scripting.clipboard_qt.QtClipboard"><code class="docutils literal notranslate"><span class="pre">QtClipboard</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/qtclipboard.html#autokey.scripting.clipboard_qt.QtClipboard.fill_clipboard"><code class="docutils literal notranslate"><span class="pre">QtClipboard.fill_clipboard()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/qtclipboard.html#autokey.scripting.clipboard_qt.QtClipboard.fill_selection"><code class="docutils literal notranslate"><span class="pre">QtClipboard.fill_selection()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/qtclipboard.html#autokey.scripting.clipboard_qt.QtClipboard.get_clipboard"><code class="docutils literal notranslate"><span class="pre">QtClipboard.get_clipboard()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/qtclipboard.html#autokey.scripting.clipboard_qt.QtClipboard.get_selection"><code class="docutils literal notranslate"><span class="pre">QtClipboard.get_selection()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/qtclipboard.html#autokey.scripting.clipboard_qt.QtClipboard.set_clipboard_image"><code class="docutils literal notranslate"><span class="pre">QtClipboard.set_clipboard_image()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/gtkdialog.html">GtkDialog API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/gtkdialog.html#autokey.scripting.dialog_gtk.GtkDialog"><code class="docutils literal notranslate"><span class="pre">GtkDialog</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/gtkdialog.html#autokey.scripting.dialog_gtk.GtkDialog.calendar"><code class="docutils literal notranslate"><span class="pre">GtkDialog.calendar()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/gtkdialog.html#autokey.scripting.dialog_gtk.GtkDialog.choose_colour"><code class="docutils literal notranslate"><span class="pre">GtkDialog.choose_colour()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/gtkdialog.html#autokey.scripting.dialog_gtk.GtkDialog.choose_directory"><code class="docutils literal notranslate"><span class="pre">GtkDialog.choose_directory()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/gtkdialog.html#autokey.scripting.dialog_gtk.GtkDialog.info_dialog"><code class="docutils literal notranslate"><span class="pre">GtkDialog.info_dialog()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/gtkdialog.html#autokey.scripting.dialog_gtk.GtkDialog.input_dialog"><code class="docutils literal notranslate"><span class="pre">GtkDialog.input_dialog()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/gtkdialog.html#autokey.scripting.dialog_gtk.GtkDialog.list_menu"><code class="docutils literal notranslate"><span class="pre">GtkDialog.list_menu()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/gtkdialog.html#autokey.scripting.dialog_gtk.GtkDialog.list_menu_multi"><code class="docutils literal notranslate"><span class="pre">GtkDialog.list_menu_multi()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/gtkdialog.html#autokey.scripting.dialog_gtk.GtkDialog.open_file"><code class="docutils literal notranslate"><span class="pre">GtkDialog.open_file()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/gtkdialog.html#autokey.scripting.dialog_gtk.GtkDialog.password_dialog"><code class="docutils literal notranslate"><span class="pre">GtkDialog.password_dialog()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/gtkdialog.html#autokey.scripting.dialog_gtk.GtkDialog.save_file"><code class="docutils literal notranslate"><span class="pre">GtkDialog.save_file()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/gtkclipboard.html">GtkClipboard API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/gtkclipboard.html#autokey.scripting.clipboard_gtk.GtkClipboard"><code class="docutils literal notranslate"><span class="pre">GtkClipboard</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/gtkclipboard.html#autokey.scripting.clipboard_gtk.GtkClipboard.fill_clipboard"><code class="docutils literal notranslate"><span class="pre">GtkClipboard.fill_clipboard()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/gtkclipboard.html#autokey.scripting.clipboard_gtk.GtkClipboard.fill_selection"><code class="docutils literal notranslate"><span class="pre">GtkClipboard.fill_selection()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/gtkclipboard.html#autokey.scripting.clipboard_gtk.GtkClipboard.get_clipboard"><code class="docutils literal notranslate"><span class="pre">GtkClipboard.get_clipboard()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/gtkclipboard.html#autokey.scripting.clipboard_gtk.GtkClipboard.get_selection"><code class="docutils literal notranslate"><span class="pre">GtkClipboard.get_selection()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/gtkclipboard.html#autokey.scripting.clipboard_gtk.GtkClipboard.selection"><code class="docutils literal notranslate"><span class="pre">GtkClipboard.selection</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/gtkclipboard.html#autokey.scripting.clipboard_gtk.GtkClipboard.set_clipboard_image"><code class="docutils literal notranslate"><span class="pre">GtkClipboard.set_clipboard_image()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/system.html">System API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/system.html#autokey.scripting.System"><code class="docutils literal notranslate"><span class="pre">System</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/system.html#autokey.scripting.System.create_file"><code class="docutils literal notranslate"><span class="pre">System.create_file()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/system.html#autokey.scripting.System.exec_command"><code class="docutils literal notranslate"><span class="pre">System.exec_command()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/window.html">Window API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/window.html#autokey.scripting.Window"><code class="docutils literal notranslate"><span class="pre">Window</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/window.html#autokey.scripting.Window.activate"><code class="docutils literal notranslate"><span class="pre">Window.activate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/window.html#autokey.scripting.Window.close"><code class="docutils literal notranslate"><span class="pre">Window.close()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/window.html#autokey.scripting.Window.get_active_class"><code class="docutils literal notranslate"><span class="pre">Window.get_active_class()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/window.html#autokey.scripting.Window.get_active_geometry"><code class="docutils literal notranslate"><span class="pre">Window.get_active_geometry()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/window.html#autokey.scripting.Window.get_active_title"><code class="docutils literal notranslate"><span class="pre">Window.get_active_title()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/window.html#autokey.scripting.Window.move_to_desktop"><code class="docutils literal notranslate"><span class="pre">Window.move_to_desktop()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/window.html#autokey.scripting.Window.resize_move"><code class="docutils literal notranslate"><span class="pre">Window.resize_move()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/window.html#autokey.scripting.Window.set_property"><code class="docutils literal notranslate"><span class="pre">Window.set_property()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/window.html#autokey.scripting.Window.switch_desktop"><code class="docutils literal notranslate"><span class="pre">Window.switch_desktop()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/window.html#autokey.scripting.Window.wait_for_exist"><code class="docutils literal notranslate"><span class="pre">Window.wait_for_exist()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/window.html#autokey.scripting.Window.wait_for_focus"><code class="docutils literal notranslate"><span class="pre">Window.wait_for_focus()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/engine.html">Engine API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/engine.html#autokey.scripting.Engine"><code class="docutils literal notranslate"><span class="pre">Engine</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/engine.html#autokey.scripting.Engine.create_abbreviation"><code class="docutils literal notranslate"><span class="pre">Engine.create_abbreviation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/engine.html#autokey.scripting.Engine.create_folder"><code class="docutils literal notranslate"><span class="pre">Engine.create_folder()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/engine.html#autokey.scripting.Engine.create_hotkey"><code class="docutils literal notranslate"><span class="pre">Engine.create_hotkey()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/engine.html#autokey.scripting.Engine.create_phrase"><code class="docutils literal notranslate"><span class="pre">Engine.create_phrase()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/engine.html#autokey.scripting.Engine.get_folder"><code class="docutils literal notranslate"><span class="pre">Engine.get_folder()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/engine.html#autokey.scripting.Engine.get_macro_arguments"><code class="docutils literal notranslate"><span class="pre">Engine.get_macro_arguments()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/engine.html#autokey.scripting.Engine.get_script_arguments"><code class="docutils literal notranslate"><span class="pre">Engine.get_script_arguments()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/engine.html#autokey.scripting.Engine.get_script_keyword_arguments"><code class="docutils literal notranslate"><span class="pre">Engine.get_script_keyword_arguments()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/engine.html#autokey.scripting.Engine.get_triggered_abbreviation"><code class="docutils literal notranslate"><span class="pre">Engine.get_triggered_abbreviation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/engine.html#autokey.scripting.Engine.remove_all_temporary"><code class="docutils literal notranslate"><span class="pre">Engine.remove_all_temporary()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/engine.html#autokey.scripting.Engine.run_script"><code class="docutils literal notranslate"><span class="pre">Engine.run_script()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/engine.html#autokey.scripting.Engine.run_script_from_macro"><code class="docutils literal notranslate"><span class="pre">Engine.run_script_from_macro()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/engine.html#autokey.scripting.Engine.run_system_command_from_macro"><code class="docutils literal notranslate"><span class="pre">Engine.run_system_command_from_macro()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/engine.html#autokey.scripting.Engine.set_return_value"><code class="docutils literal notranslate"><span class="pre">Engine.set_return_value()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/highlevel.html">HighLevel API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/highlevel.html#autokey.scripting.highlevel.PatternNotFound"><code class="docutils literal notranslate"><span class="pre">PatternNotFound</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/highlevel.html#autokey.scripting.highlevel.visgrep"><code class="docutils literal notranslate"><span class="pre">visgrep()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/highlevel.html#autokey.scripting.highlevel.get_png_dim"><code class="docutils literal notranslate"><span class="pre">get_png_dim()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/highlevel.html#autokey.scripting.highlevel.mouse_move"><code class="docutils literal notranslate"><span class="pre">mouse_move()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/highlevel.html#autokey.scripting.highlevel.mouse_rmove"><code class="docutils literal notranslate"><span class="pre">mouse_rmove()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/highlevel.html#autokey.scripting.highlevel.mouse_click"><code class="docutils literal notranslate"><span class="pre">mouse_click()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/highlevel.html#autokey.scripting.highlevel.mouse_pos"><code class="docutils literal notranslate"><span class="pre">mouse_pos()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/highlevel.html#autokey.scripting.highlevel.click_on_pat"><code class="docutils literal notranslate"><span class="pre">click_on_pat()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/highlevel.html#autokey.scripting.highlevel.move_to_pat"><code class="docutils literal notranslate"><span class="pre">move_to_pat()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/highlevel.html#autokey.scripting.highlevel.acknowledge_gnome_notification"><code class="docutils literal notranslate"><span class="pre">acknowledge_gnome_notification()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/common.html">Common API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/common.html#autokey.scripting.ColourData"><code class="docutils literal notranslate"><span class="pre">ColourData</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/common.html#autokey.scripting.ColourData.from_html"><code class="docutils literal notranslate"><span class="pre">ColourData.from_html()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/common.html#autokey.scripting.ColourData.from_zenity_tuple_str"><code class="docutils literal notranslate"><span class="pre">ColourData.from_zenity_tuple_str()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/common.html#autokey.scripting.ColourData.hex_code"><code class="docutils literal notranslate"><span class="pre">ColourData.hex_code</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/common.html#autokey.scripting.ColourData.html_code"><code class="docutils literal notranslate"><span class="pre">ColourData.html_code</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/common.html#autokey.scripting.ColourData.zenity_tuple_str"><code class="docutils literal notranslate"><span class="pre">ColourData.zenity_tuple_str</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/common.html#autokey.scripting.DialogData"><code class="docutils literal notranslate"><span class="pre">DialogData</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/common.html#autokey.scripting.DialogData.successful"><code class="docutils literal notranslate"><span class="pre">DialogData.successful</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Link to this heading"></a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</section>
+
+
+           </div>
+          </div>
+
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="intro.html" class="btn btn-neutral float-right" title="Introduction to Autokey" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+  <p>
+    &#169; Copyright 2023, 
+    <a href="https://github.com/autokey/autokey/blob/master/ACKNOWLEDGMENTS" target="_blank" rel="noopener noreferrer" style="color: #2980b9; text-decoration: underline;">various</a>.
+  </p>
+
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
