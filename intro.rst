@@ -37,6 +37,9 @@ abbreviation
    A short sequence of letters, numbers or symbols that, when typed, triggers
    AutoKey to do something: expand a phrase, run a script or show a menu.
 
+action
+    An AutoKey phrase or script
+
 hotkey
    A key or combination of keys that, when pressed, triggers AutoKey to do
    something. A hotkey can be any key on the keyboard, with or without modifier
@@ -98,13 +101,13 @@ On disk, each phrase and script is a pair of files in the same directory:
      -
      - ``folder.json`` inside the folder
 
-The settings file holds the abbreviation, hotkey, window filter and send mode.
+The settings file holds the abbreviation(s), hotkey, window filter and send mode.
 Keep each pair together when you copy or move files. See
 :doc:`user/configuration` for where the files are and how to back them up.
 
 .. note::
 
-   Before AutoKey 0.96.0 the settings files were hidden (their names began with a
+   Prior to AutoKey 0.96.0 the settings files were hidden (their names began with a
    dot). AutoKey renames them automatically when it upgrades your configuration.
 
 How AutoKey works
@@ -117,7 +120,7 @@ AutoKey runs in the background and does three things.
    directly.
 2. **It decides what to do.** It keeps a short record of what you typed (the last
    150 characters) to recognise abbreviations, and it checks the keys you press
-   against your hotkeys. A window filter can limit where a trigger applies.
+   against your hotkeys. A window filter can limit where an action applies.
 3. **It acts.** It expands a phrase, runs a script or shows a menu. To insert text
    it either types the characters or pastes them through the clipboard, as you
    choose for each phrase.
