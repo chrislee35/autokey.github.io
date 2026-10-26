@@ -80,6 +80,30 @@ character that is not a letter, digit or underscore. You can change it for each
 abbreviation to "Space and Enter" or "Tab", or turn on "Trigger immediately". See
 :doc:`triggers`.
 
+How do I type a special character, such as one that is not on my keyboard?
+---------------------------------------------------------------------------
+
+Put the character itself in the phrase. Phrases are saved as UTF-8 text, so you
+can paste in any character, for example from your desktop's character map, or
+type it in a GTK text box with ``Ctrl+Shift+U`` followed by its hexadecimal code
+(for example ``Ctrl+Shift+U``, ``e9``, ``Enter`` for é). With the default
+**Clipboard (Ctrl+V)** setting under **Paste using**, the character arrives
+unchanged. If you set the phrase to **Keyboard**, AutoKey has to type each
+character, and a character with no key on your layout may not work in every
+program.
+
+Phrases have no way to write a character by its Unicode code number. The
+``<code86>`` form that you may see in AutoKey's text is not Unicode: the number is
+the keyboard's hardware key code, and it is used for keys AutoKey has no name for.
+
+In a script, Python can write a character by its code. This script puts é on the
+clipboard and pastes it:
+
+.. code-block:: python
+
+   clipboard.fill_clipboard("\u00e9")      # or chr(0xE9)
+   keyboard.send_keys("<ctrl>+v")
+
 Does AutoKey run scripts written for AutoHotkey on Windows?
 -----------------------------------------------------------
 
