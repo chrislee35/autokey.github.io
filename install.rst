@@ -1,9 +1,10 @@
+
 Installing AutoKey
 ==================
 
 .. note::
 
-   This page describes AutoKey 0.97.0 (``develop``). The Wayland steps do not
+   This page describes AutoKey 0.97.0 or newer (``develop``). The Wayland steps do not
    apply to earlier releases, which support X11 only.
 
 AutoKey runs on Linux, in an X11 session or in a Wayland session on GNOME or
@@ -52,13 +53,13 @@ The answer is ``x11`` or ``wayland``.
 **Requirements.** Python 3.10 or later. For clipboard features, ``xclip`` or
 ``wl-clipboard`` (see :ref:`clipboard-tools`).
 
-**Back up first if you are upgrading.** AutoKey keeps your phrases, scripts and
-settings in ``~/.config/autokey``. Copy that directory before you install a new
+**Back up first if you are upgrading.** By default, AutoKey keeps your phrases, scripts and
+settings in ``~/.config/autokey``. Copy that directory tree before you install a new
 version, and remove any old installation first:
 
 .. code-block:: bash
 
-   cp -r ~/.config/autokey ~/.config/autokey-backup
+   cp -a ~/.config/autokey ~/.config/autokey-backup
 
 Choose an installation method
 -----------------------------
@@ -106,6 +107,8 @@ Debian, Ubuntu and Linux Mint (.deb packages)
    other desktop, install it too (``sudo apt-get install kdialog``), or AutoKey
    shows an error about the missing program when it starts.
 
+.. TODO: This is unclear.  What's an automated test?
+
 The packages are built and installed in an automated test on Ubuntu 24.04 and
 26.04. They install ``xclip`` and the other dependencies for you.
 
@@ -115,8 +118,8 @@ The packages are built and installed in an automated test on Ubuntu 24.04 and
 - copies a udev rule to ``/etc/udev/rules.d/10-autokey.rules`` so your session
   can use ``/dev/uinput``;
 - adds the user who ran ``sudo`` to the ``input`` group;
-- installs the GNOME Shell extension, if GNOME is present. The extension stays
-  switched off until you log in again; AutoKey switches it on the first time it
+- installs the GNOME Shell extension if GNOME is present. The extension stays
+  switched off until you log in again. AutoKey switches it on the first time it
   starts.
 
 If you installed some other way (for example as root without ``sudo``), the
@@ -246,6 +249,8 @@ You need only one. The ``.deb`` packages install ``xclip``. If AutoKey finds
 neither on Wayland it logs a warning at startup, and clipboard actions fail
 until you install one.
 
+.. TODO: What does "fail" mean in this context? Do they act as no-ops, write log messages, throw an exception... ?
+
 .. _first-run:
 
 First run, and checking that it works
@@ -256,8 +261,15 @@ First run, and checking that it works
    above did not appear.
 2. A tray icon appears. Click it to open the main window. If you turned the
    icon off, the default shortcut ``<super>+k`` opens the window.
+
+.. TODO: unless the situation has improved, the GTK panel icon produces the context menu on
+   both left- and right-clicks. Opening the main menu is one of the options in that menu.
+   bluedrink9 looked into this, but said there wasn't an optionfor the left-click
+   to directly open the main menu.
+
 3. Create a test phrase. Choose **My Phrases**, add a phrase with the text
    ``it works``, and give it the abbreviation ``tst``.
+   Type ``<ctrl>+s`` or click on ``Save``to save your changes.
 4. Open a text editor, type ``tst`` followed by a space, and the text expands.
 
 If nothing happens, run AutoKey from a terminal with verbose logging and read
@@ -296,7 +308,8 @@ Troubleshooting installation
    * - ``pip`` refuses with "externally-managed-environment"
      - Use the virtual environment shown in :ref:`install-pip`.
    * - ``dpkg`` reports missing dependencies
-     - Install the packages with ``apt-get install ./file.deb`` as shown above
+       Run ``sudo apt install -f`` or
+       Install the packages with ``apt-get install ./file.deb`` as shown above
        instead of ``dpkg -i``.
 
 For other problems see the wiki's Troubleshooting page, and report bugs on the
@@ -307,7 +320,7 @@ Upgrading and uninstalling
 --------------------------
 
 AutoKey upgrades your configuration automatically the first time a newer
-version starts, which is why the backup above is worth making. To uninstall a
+version starts, which is one reason the backup above is worth making. To uninstall a
 ``.deb`` installation:
 
 .. code-block:: bash
