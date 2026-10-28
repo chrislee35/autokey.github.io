@@ -15,6 +15,8 @@ Which front end should I install, GTK or Qt?
 Either. ``autokey-gtk`` suits GTK desktops such as GNOME and Cinnamon, and
 ``autokey-qt`` suits KDE Plasma. They do the same things. See :doc:`../install`.
 
+The two have very minor quirks/differences, but are as identical as possible.
+
 How can I pause and resume AutoKey?
 -----------------------------------
 
@@ -59,7 +61,7 @@ Where is my configuration stored, and can I copy it to another computer?
 ------------------------------------------------------------------------
 
 In ``~/.config/autokey``. See :doc:`configuration` for what is in it, how to back it
-up and how to move it.
+up, and how to move it.
 
 How do I back up or restore AutoKey?
 ------------------------------------
@@ -102,3 +104,8 @@ How do I suggest a feature or report a bug?
 Use the `issue tracker <https://github.com/autokey/autokey/issues>`__. For a bug,
 include the information listed in :doc:`troubleshooting`. For help using AutoKey,
 ask in one of the community channels listed in the README.
+
+Where can I connect with other AutoKey users ad get support?
+------------------------------------------------------------
+
+There are a number of `forums <https://github.com/autokey/autokey/wiki/Community>`__  with Gitter being the most active one.
