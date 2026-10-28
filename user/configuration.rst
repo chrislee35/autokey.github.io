@@ -1,7 +1,7 @@
 Configuration and backup
 ========================
 
-AutoKey keeps your phrases, scripts and settings in ordinary files. This page says
+AutoKey keeps your phrases, scripts and settings in ordinary files. This page details
 where they are, how to back them up and move them to another computer, and what
 the main settings do.
 
@@ -33,13 +33,16 @@ You are not limited to the default location. A top-level folder can be created
 anywhere on disk, including inside a synchronised directory, and AutoKey will use it
 from there.
 
+.. TODO: what exactly is a top-level folder? Does this mean that a subfolder of an internal
+   folder cannot be external? What's a synchronized directory? Dropbox...?
+
 Each phrase and script is a pair of files, a content file and a settings file with
 the same name and a ``.json`` extension, as described in :doc:`../intro`. Keep each
 pair together.
 
 .. note::
 
-   Before AutoKey 0.96.0 the settings files were hidden, with a name that began
+   Before AutoKey 0.96.0, the settings files were hidden, with a name that began
    with a dot (``.my_phrase.json``). AutoKey renames them when it upgrades your
    configuration. If you restore an old backup by copying files by hand, remember
    that the hidden files are easy to miss: many copy commands and some file
@@ -52,7 +55,7 @@ AutoKey has no separate export feature. Your configuration directory is the back
 
 .. code-block:: bash
 
-   cp -r ~/.config/autokey ~/.config/autokey-backup
+   cp -a ~/.config/autokey ~/.config/autokey-backup
 
 To restore it, copy it back the same way. Do it while AutoKey is not running if you
 can. If you keep phrases and scripts in folders outside ``~/.config/autokey``,
@@ -132,6 +135,10 @@ useful options are:
 The settings window also has options for the tray icon's style and for the colour
 theme of the script editor. Some of them take effect after a restart; the window
 says which.
+
+If you are using KDE with session restore, it will usually restart AutoKey if it
+was running when the last session ended. Setting AutoKey to launch at startup can
+launch a second instance, generating a warning pop-up message.
 
 Saved values for scripts
 ------------------------
