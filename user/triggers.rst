@@ -1,8 +1,10 @@
 Abbreviations and hotkeys
 =========================
 
-Every phrase, script and folder can have a **trigger**: an abbreviation you type,
+Every phrase, script and folder can have **triggers**: abbreviation(s) you type,
 a hotkey you press, or both. This page explains how AutoKey recognises each one.
+
+Both phrases and scripts can have multiple distinct abbreviations.
 
 Abbreviations
 -------------
@@ -17,10 +19,9 @@ against your abbreviations after each key press. This has some consequences:
   field or window. You cannot click while you type an abbreviation. A click is a
   handy way to cancel an abbreviation you started by mistake.
 
-A phrase can have more than one abbreviation.
 
-When does an abbreviation expand?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+When does a phrase abbreviation expand?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 By default an abbreviation expands when you type it and then a character that ends
 a word: a space, Enter, a punctuation mark or anything else that is not a letter,
@@ -49,6 +50,8 @@ digit or underscore. The options in the **Set Abbreviation** dialog change this:
      - Erases the abbreviation. Turn it off to keep it in the text.
    * - Omit trigger character
      - Does not insert the ending character.
+
+The capitalization of an abbreviation can effect how it expands.
 
 The two case options work together:
 
@@ -90,15 +93,15 @@ case to typed abbreviation".)
 Hotkeys
 -------
 
-A hotkey is a key, usually with modifier keys, that runs the item when you press
+A hotkey is a key, usually with modifier keys, that runs the action when you press
 it. Set one with **Set** next to **Hotkey** and press the combination.
 
 - The modifier keys are Control, Alt, Shift and Super. Hyper and Meta are also
-  available.
+  available if they are defined in your primary keyboard layout.
 - You can require a particular side of a modifier, for example the left Control
   key only. The GTK front end's hotkey dialog offers the left and right version of
   each modifier; the Qt front end honors such a setting if the configuration file
-  contains it. A hotkey set for a specific side must be pressed with that side.
+  contains it. A hotkey set for a specific side must be pressed on that side.
 - A hotkey on a **folder** opens a menu of the folder's contents.
 - Two items can share a hotkey only if their window filters differ. See
   :doc:`window-filters`.
@@ -110,12 +113,12 @@ Special hotkeys in the settings
 
 The AutoKey settings have two hotkeys of their own: one to **show the
 configuration window** (``<super>+k`` by default) and one to **toggle monitoring**,
-which pauses and resumes all expansions.
+which pauses and resumes all triggers.
 
 Recording a key combination
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If you do not know how a key is named, click **Press to Set** and press it. The
+If you do not know what a key is named, click **Press to Set** and press it. The
 dialog records what AutoKey sees.
 
 Menus and prompts
