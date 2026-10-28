@@ -11,8 +11,8 @@ This page is a tour. The :doc:`API reference <../api>` lists every function.
 Writing and running a script
 ----------------------------
 
-1. In the main window, choose **Script** from the **File** menu, in the folder you
-   want, and type a name.
+1. In the main window, select the folder where you
+   want the script to be saved, right-click on it and choose **Script** from the context menu, and type a name.
 2. Write the code in the editor and save.
 3. Set a hotkey or abbreviation (see :doc:`../user/triggers`), or press ``F5`` to
    run it. ``F5`` starts the script after two seconds, so you can switch to the
@@ -20,10 +20,13 @@ Writing and running a script
 
 Each script is a ``.py`` file with a ``.json`` settings file beside it (see
 :doc:`../intro`). You can edit the ``.py`` file with any editor; AutoKey notices the
-change. The **Sample Scripts** folder has examples to read and copy.
+change. The **Sample Scripts** folder has examples to read and copy. There are many more
+in our `wiki <https://github.com/autokey/autokey/wiki/Scripting>`__.
 
-You do not need ``import`` statements for AutoKey's own objects. They are already
-available.
+.. TODO: did I add time correctly?
+
+You do not need ``import`` statements for the ``time`` module or for AutoKey's own objects.
+They are already available.
 
 The objects a script can use
 ----------------------------
@@ -37,18 +40,18 @@ The objects a script can use
    * - ``keyboard``
      - Send text and key presses, press and release keys, and wait for a key.
    * - ``mouse``
-     - Click, move and scroll the mouse, drag over an area, read the pointer's
+     - Click, move, and scroll the mouse, drag over an area, read the pointer's
        location, and wait for a click.
    * - ``window``
-     - Find, activate, close, resize, move and read information about windows.
+     - Find, activate, close, resize, move, and read information about windows.
    * - ``clipboard``
-     - Read and write the clipboard and the mouse selection, and set an image.
+     - Read and write the clipboard and the mouse selection for text as well as images.
    * - ``dialog``
-     - Show messages, input boxes, menus, file choosers and a calendar.
+     - Show messages, input boxes, menus, file choosers, and a calendar.
    * - ``system``
      - Run a shell command and create files.
    * - ``store``
-     - Keep values between runs of the same script, or share them between scripts.
+     - Keep values between runs of the same script or share them between scripts.
    * - ``engine``
      - Work with AutoKey itself: create phrases, run other scripts, read script
        arguments and the abbreviation that triggered the script.
@@ -85,6 +88,9 @@ The GTK front end draws dialogs with ``zenity`` and the Qt front end with
 
 The clipboard
 -------------
+
+.. TODO: Is this fixed? Prior to 0.97.0, all clipboard calls required a
+   time.sleep(0.1) to give them time to complete.
 
 .. code-block:: python
 
@@ -162,7 +168,8 @@ Your own modules
 ----------------
 
 Python files you put in the **User Module Folder** (a setting) can be imported by
-your scripts.
+your scripts. Currently, these cannot use AutoKey objects (our API calls) without
+additional scripting.
 
 Debugging
 ---------
@@ -178,3 +185,5 @@ Differences by desktop
 - The ``window`` functions differ between X11, GNOME and KDE.
 - Mouse positions on Wayland are tracked by AutoKey itself; test mouse scripts on
   your own desktop (see :doc:`../user/limitations`).
+
+.. TODO:  What does test mouse scripts on your own desktop mean?
