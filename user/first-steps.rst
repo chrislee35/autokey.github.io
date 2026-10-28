@@ -10,6 +10,8 @@ a few differ slightly between them.
 The main window
 ---------------
 
+.. TODO: same problem with GTK tray icon as elsewhere in the docs
+
 Open the main window by clicking the tray icon. If you hid the icon, press the
 global hotkey (``<super>+k`` unless you changed it), or run ``autokey-gtk`` or
 ``autokey-qt`` again, which asks the running instance to show its window.
