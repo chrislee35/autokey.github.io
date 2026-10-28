@@ -137,8 +137,18 @@ Environment" means your Wayland desktop is not GNOME or KDE Plasma.
 Asking for help
 ---------------
 
-If you cannot solve it, ask in one of the community channels listed in the README,
-or report a bug on the
+If you cannot solve it or want feedback from others who may have experienced the same
+problem, ask in one of the community channels listed in the README.
+
+If you're not sure something is a bug, please start with a community post.
+
+Our community sites have a number of active users, so you are likely to get more, better,
+and faster answers on them than on GitHub where only our very busy developers and
+a few users see the posts. We also prefer to have the developers developing rather
+than taking time to answer questions and manage issues that the user community could
+handle for them.
+
+If you think you have discovered a bug, report it on the
 `issue tracker <https://github.com/autokey/autokey/issues>`__. Include:
 
 1. Your AutoKey version (``autokey-gtk --version``), distribution, desktop and
