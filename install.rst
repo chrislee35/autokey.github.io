@@ -107,10 +107,9 @@ Debian, Ubuntu and Linux Mint (.deb packages)
    other desktop, install it too (``sudo apt-get install kdialog``), or AutoKey
    shows an error about the missing program when it starts.
 
-.. TODO: This is unclear.  What's an automated test?
-
-The packages are built and installed in an automated test on Ubuntu 24.04 and
-26.04. They install ``xclip`` and the other dependencies for you.
+The project's continuous-integration tests build these packages and install them
+on Ubuntu 24.04 and 26.04 before each release, so those are the releases known to
+work. The packages install ``xclip`` and the other dependencies for you.
 
 **What the installer does for Wayland.** When you install with ``sudo``, the
 ``autokey-common`` package:
@@ -247,9 +246,11 @@ clipboard API uses the same machinery. For that it needs one of these programs:
 
 You need only one. The ``.deb`` packages install ``xclip``. If AutoKey finds
 neither on Wayland it logs a warning at startup, and clipboard actions fail
-until you install one.
-
-.. TODO: What does "fail" mean in this context? Do they act as no-ops, write log messages, throw an exception... ?
+until you install one. "Fail" means a script's call to ``clipboard.get_clipboard()``,
+``clipboard.fill_clipboard()`` or the matching selection functions raises an error
+(``PyperclipException``) that names the missing programs, and the script stops with
+it. A phrase that pastes through the clipboard does not get pasted. Look for the error in
+the log view or ``autokey.log``.
 
 .. _first-run:
 
@@ -259,13 +260,10 @@ First run, and checking that it works
 1. Start AutoKey from your application menu, or from a terminal with
    ``autokey-gtk`` or ``autokey-qt``. On Wayland, check the dialog described
    above did not appear.
-2. A tray icon appears. Click it to open the main window. If you turned the
-   icon off, the default shortcut ``<super>+k`` opens the window.
-
-.. TODO: unless the situation has improved, the GTK panel icon produces the context menu on
-   both left- and right-clicks. Opening the main menu is one of the options in that menu.
-   bluedrink9 looked into this, but said there wasn't an optionfor the left-click
-   to directly open the main menu.
+2. A tray icon appears. In the Qt front end, click it to open the main window. In
+   the GTK front end, any click on the icon opens a menu; choose **Show Main
+   Window**. If you turned the icon off, the default shortcut ``<super>+k`` opens
+   the window.
 
 3. Create a test phrase. Choose **My Phrases**, add a phrase with the text
    ``it works``, and give it the abbreviation ``tst``.

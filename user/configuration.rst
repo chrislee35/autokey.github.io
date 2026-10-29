@@ -29,12 +29,11 @@ Where your data is
      - The log file. (If ``XDG_DATA_HOME`` is set, the folder is ``autokey`` inside
        it.)
 
-You are not limited to the default location. A top-level folder can be created
-anywhere on disk, including inside a synchronised directory, and AutoKey will use it
-from there.
-
-.. TODO: what exactly is a top-level folder? Does this mean that a subfolder of an internal
-   folder cannot be external? What's a synchronized directory? Dropbox...?
+You are not limited to the default location. A top-level folder is a folder at the
+root of the tree in the main window, such as **My Phrases**. You can create one
+anywhere on disk, including inside a directory that a service such as Dropbox or
+Syncthing keeps in sync, and AutoKey will use it from there. Subfolders and items
+inside it are stored within that folder on disk.
 
 Each phrase and script is a pair of files, a content file and a settings file with
 the same name and a ``.json`` extension, as described in :doc:`../intro`. Keep each

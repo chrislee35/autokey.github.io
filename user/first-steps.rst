@@ -10,9 +10,9 @@ a few differ slightly between them.
 The main window
 ---------------
 
-.. TODO: same problem with GTK tray icon as elsewhere in the docs
-
-Open the main window by clicking the tray icon. If you hid the icon, press the
+Open the main window from the tray icon. In the Qt front end, click the icon. In the
+GTK front end, a click on the icon (left or right) opens a menu, and **Show Main
+Window** is one of its entries. If you hid the icon, press the
 global hotkey (``<super>+k`` unless you changed it), or run ``autokey-gtk`` or
 ``autokey-qt`` again, which asks the running instance to show its window.
 

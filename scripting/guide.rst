@@ -23,8 +23,6 @@ Each script is a ``.py`` file with a ``.json`` settings file beside it (see
 change. The **Sample Scripts** folder has examples to read and copy. There are many more
 in our `wiki <https://github.com/autokey/autokey/wiki/Scripting>`__.
 
-.. TODO: did I add time correctly?
-
 You do not need ``import`` statements for the ``time`` module or for AutoKey's own objects.
 They are already available.
 
@@ -89,21 +87,18 @@ The GTK front end draws dialogs with ``zenity`` and the Qt front end with
 The clipboard
 -------------
 
-.. TODO: Is this fixed? Prior to 0.97.0, all clipboard calls required a
-   time.sleep(0.1) to give them time to complete.
-
 .. code-block:: python
 
    text = clipboard.get_clipboard()
-   if text is None:
+   if not text:
        dialog.info_dialog("Clipboard", "The clipboard is empty.")
    else:
        clipboard.fill_clipboard(text.upper())
 
-``get_clipboard()`` and ``get_selection()`` return ``None`` when there is nothing to
-read. In AutoKey versions before 0.97.0 they raised an exception instead, so older
-scripts may wrap them in ``try:``; that is no longer needed, but they should now
-check for ``None``. The clipboard needs ``xclip`` or ``wl-clipboard`` installed.
+``get_clipboard()`` and ``get_selection()`` return an empty string when there is
+nothing to read, and write a warning to the log. In AutoKey versions before 0.97.0
+they raised an exception instead, so older scripts may wrap them in ``try:``; that
+is no longer needed, but they should now check for an empty result. The clipboard needs ``xclip`` or ``wl-clipboard`` installed.
 
 Windows
 -------
@@ -183,7 +178,7 @@ Differences by desktop
 - The ``highlevel`` image-matching functions work on X11 only. On Wayland they raise
   an error that says so.
 - The ``window`` functions differ between X11, GNOME and KDE.
-- Mouse positions on Wayland are tracked by AutoKey itself; test mouse scripts on
-  your own desktop (see :doc:`../user/limitations`).
-
-.. TODO:  What does test mouse scripts on your own desktop mean?
+- Mouse positions on Wayland are tracked by AutoKey itself, so absolute positions can
+  land off target if something else moves the pointer. Run any script that moves or
+  clicks the mouse on the desktop it is meant for, and check where it ends up (see
+  :doc:`../user/limitations`).
