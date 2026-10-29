@@ -123,7 +123,9 @@ work. The packages install ``xclip`` and the other dependencies for you.
 
 If you installed some other way (for example as root without ``sudo``), the
 installer prints the two commands you need instead. In every case you must
-**log out and log back in** before AutoKey can use the new group membership.
+**reboot** before AutoKey can use the new group membership and the new
+``/dev/uinput`` permissions. Logging out and back in is not enough on a fresh
+system.
 Then continue with :ref:`first-run`.
 
 .. _install-pip:
