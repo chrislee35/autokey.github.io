@@ -35,8 +35,8 @@ Modifier keys
      - The right-hand modifier.
    * - ``<alt_gr>``
      - The AltGr key.
-   * - ``<capslock>``, ``<numlock>`` (and ``<left_...>``, ``<right_...>`` forms)
-     - The lock keys.
+   * - ``<capslock>``, ``<numlock>``
+     - The Caps Lock and Num Lock keys.
 
 Cursor and editing keys
 -----------------------
