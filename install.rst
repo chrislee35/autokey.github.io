@@ -158,8 +158,9 @@ Use ``"autokey[QT]"`` for the Qt front end, or ``"autokey[GTK,QT]"`` for both.
 Start it with ``~/autokey-venv/bin/autokey-gtk`` or
 ``~/autokey-venv/bin/autokey-qt``.
 
-``pip`` does not do the Wayland setup. If you use Wayland, follow
-:ref:`wayland-setup` next.
+``pip`` does not do the Wayland setup, and it does not install the udev rule
+into ``/etc/udev/rules.d/``. If you use Wayland, follow :ref:`wayland-setup`
+next.
 
 .. _install-source:
 
@@ -224,8 +225,20 @@ keyboard it creates with ``uinput``. That needs three things.
    The extension supports GNOME Shell 40 and later. KDE Plasma needs no
    extension: AutoKey talks to KWin directly.
 
-Then **log out and log back in** (or reboot). New group membership and new
-GNOME extensions are only picked up at login.
+Then **reboot**. New group membership and new GNOME extensions are picked up at
+login, but the ``/dev/uinput`` permissions are only applied at boot on a system
+where the ``uinput`` module is not loaded yet, so a logout alone can leave the
+device unwritable. After logging in again, check that both of these succeed:
+
+.. code-block:: bash
+
+   id -nG | grep -w input
+   ls -l /dev/uinput
+
+``ls`` should show group ``input`` and mode ``crw-rw----`` (a trailing ``+`` is fine). Being in the
+``input`` group does nothing by itself: if ``/dev/uinput`` still belongs to
+``root`` with mode ``crw-------``, the udev rule is missing or has not been
+applied yet.
 
 If the setup is incomplete when you start AutoKey, it shows a dialog titled
 "AutoKey System Configuration Needed" with the commands for your desktop. If
@@ -292,9 +305,9 @@ Troubleshooting installation
    * - What you see
      - What to do
    * - "AutoKey System Configuration Needed" dialog
-     - Follow :ref:`wayland-setup`, then log out and in. Check
-       ``id -nG`` lists ``input`` and ``test -w /dev/uinput && echo ok``
-       prints ``ok``.
+     - Follow :ref:`wayland-setup`, then reboot. Check
+       ``id -nG`` lists ``input``, ``ls -l /dev/uinput`` shows group ``input``,
+       and ``test -w /dev/uinput && echo ok`` prints ``ok``.
    * - "Unsupported Desktop Environment" dialog
      - Your Wayland desktop is not GNOME or KDE Plasma. Log in to an X11
        session instead.

@@ -131,8 +131,9 @@ AutoKey shows an error at start-up on Wayland
 
 "AutoKey System Configuration Needed" means your user cannot yet use ``/dev/uinput``,
 is not in the ``input`` group or, on GNOME, lacks the AutoKey extension. Follow the
-Wayland setup in :doc:`../install`, then log out and in. "Unsupported Desktop
-Environment" means your Wayland desktop is not GNOME or KDE Plasma.
+Wayland setup in :doc:`../install`, then reboot. Being in the ``input`` group is not
+enough if ``/dev/uinput`` still belongs to ``root`` (check with ``ls -l /dev/uinput``).
+"Unsupported Desktop Environment" means your Wayland desktop is not GNOME or KDE Plasma.
 
 Asking for help
 ---------------
