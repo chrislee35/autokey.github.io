@@ -282,7 +282,7 @@ First run, and checking that it works
 
 3. Create a test phrase. Choose **My Phrases**, add a phrase with the text
    ``it works``, and give it the abbreviation ``tst``.
-   Type ``<ctrl>+s`` or click on ``Save``to save your changes.
+   Type ``<ctrl>+s`` or click on ``Save`` to save your changes.
 4. Open a text editor, type ``tst`` followed by a space, and the text expands.
 
 If nothing happens, run AutoKey from a terminal with verbose logging and read
@@ -321,9 +321,8 @@ Troubleshooting installation
    * - ``pip`` refuses with "externally-managed-environment"
      - Use the virtual environment shown in :ref:`install-pip`.
    * - ``dpkg`` reports missing dependencies
-       Run ``sudo apt install -f`` or
-       Install the packages with ``apt-get install ./file.deb`` as shown above
-       instead of ``dpkg -i``.
+     - Run ``sudo apt install -f``, or install the package with
+       ``sudo apt-get install ./file.deb`` as shown above instead of ``dpkg -i``.
 
 For other problems see the wiki's Troubleshooting page, and report bugs on the
 `issue tracker <https://github.com/autokey/autokey/issues>`__ with the

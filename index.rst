@@ -41,6 +41,12 @@ Welcome to AutoKey!
 
    previous/index
 
+.. toctree::
+   :caption: About
+   :maxdepth: 1
+
+   credits
+
 .. only:: html
 
    Indices and tables
