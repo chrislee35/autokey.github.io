@@ -182,9 +182,8 @@ For developers and testers, install from a clone of the repository. Use the
 
 Use ``".[QT]"`` for the Qt front end. On GNOME, installing from source builds the Shell extension's zip file if
 ``make`` and ``zip`` are available. The Debian packages can also be built from
-a clone with ``debian/build.sh``. The `Contributing and testing guides
-<https://github.com/autokey/autokey/blob/develop/CONTRIBUTORS.rst>`__ cover
-the development setup in more detail.
+a clone with ``debian/build.sh``. The :doc:`contributing/guide` and
+:doc:`contributing/testing` pages cover the development setup in more detail.
 
 .. _wayland-setup:
 

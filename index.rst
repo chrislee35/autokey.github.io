@@ -36,6 +36,15 @@ Welcome to AutoKey!
    api
 
 .. toctree::
+   :caption: Contributing
+   :maxdepth: 1
+
+   contributing/guide
+   contributing/testing
+   contributing/vm-testing
+   contributing/internals
+
+.. toctree::
    :caption: Previous versions
    :maxdepth: 1
 
