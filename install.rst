@@ -169,16 +169,23 @@ next.
 From source
 -----------
 
-For developers and testers, install from a clone of the repository. Use the
-``develop`` branch for the newest code.
+For developers and testers, install from a clone of the repository.
+
+**Beta testers:** clone from the release tag, not from ``develop``, so that
+everyone testing a beta runs the same code and bug reports can name the exact
+version. The tag for the first 0.97.0 beta is ``v0.97.0-beta.0``. Find newer
+tags on the `releases page <https://github.com/autokey/autokey/releases>`__.
 
 .. code-block:: bash
 
    git clone https://github.com/autokey/autokey
    cd autokey
-   git checkout develop
+   git checkout v0.97.0-beta.0
    python3 -m venv --system-site-packages ~/autokey-venv
    ~/autokey-venv/bin/pip install ".[GTK]"
+
+**Developers:** use the ``develop`` branch for the newest code. In the commands
+above, run ``git checkout develop`` instead of ``git checkout v0.97.0-beta.0``.
 
 Use ``".[QT]"`` for the Qt front end. On GNOME, installing from source builds the Shell extension's zip file if
 ``make`` and ``zip`` are available. The Debian packages can also be built from
