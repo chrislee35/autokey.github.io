@@ -24,6 +24,31 @@ Thank you also to Eddie Bell, whose keylogger example gave Sam the way to
 monitor keyboard input, and to the authors of Textpander, Texter and AutoHotkey,
 whose software inspired AutoKey.
 
+Wayland support
+---------------
+
+For years AutoKey worked only in an X11 session, and many people asked for
+Wayland support. It exists today largely because of **David King**
+(`dlk3 <https://github.com/dlk3>`__).
+
+In November 2024 David started a fork of AutoKey to add support for GNOME on
+Wayland, and in January 2025 he moved that work to its own repository,
+``autokey-wayland``. He wrote the new way of sending and reading keyboard and
+mouse input through the kernel's ``uinput`` device, which is what AutoKey uses
+on Wayland, and the startup checks that tell you when your system needs setting
+up. If you use AutoKey on Wayland, you are using his work. Thank you, David.
+
+Others built on that foundation:
+
+- `sebastiansam55 <https://github.com/sebastiansam55>`__ wrote the earlier
+  groundwork for Wayland: a ``uinput`` keyboard module, and a GNOME Shell
+  extension for listing windows that AutoKey still uses. He also contributed to
+  the ``uinput`` code that David developed.
+- `chrislee35 <https://github.com/chrislee35>`__ and
+  `keeltrace <https://github.com/keeltrace>`__ added support for KDE Plasma.
+- The AutoKey GNOME Shell extension is based on
+  `window-calls <https://github.com/ickyicky/window-calls>`__ by ickyicky.
+
 Contributors
 ------------
 
