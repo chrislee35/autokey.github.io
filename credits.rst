@@ -28,39 +28,66 @@ Contributors
 ------------
 
 Thank you to everyone who has sent code, documentation, bug reports and
-fixes to AutoKey. These are the people listed by GitHub as
-contributors to the `autokey/autokey <https://github.com/autokey/autokey/graphs/contributors>`__
-repository:
+fixes to AutoKey. They are listed with the largest amount of code contributed
+first. People from before AutoKey moved to GitHub are listed without links.
+The code count comes from the `autokey/autokey <https://github.com/autokey/autokey>`__
+history; it does not measure review, testing, documentation, or support, which
+matter just as much.
 
-`luziferius <https://github.com/luziferius>`__,
-`troxor <https://github.com/troxor>`__,
-`Elliria <https://github.com/Elliria>`__,
-`BlueDrink9 <https://github.com/BlueDrink9>`__,
-`josephj11 <https://github.com/josephj11>`__,
+cdekter,
 `sebastiansam55 <https://github.com/sebastiansam55>`__,
+`troxor <https://github.com/troxor>`__,
+`BlueDrink9 <https://github.com/BlueDrink9>`__,
+`luziferius <https://github.com/luziferius>`__,
+`chrislee35 <https://github.com/chrislee35>`__,
+`dlk3 <https://github.com/dlk3>`__,
 `guoci <https://github.com/guoci>`__,
-`K0Stek122 <https://github.com/K0Stek122>`__,
-`dogweather <https://github.com/dogweather>`__,
-`userdocs <https://github.com/userdocs>`__,
-`xpusostomos <https://github.com/xpusostomos>`__,
-`anthonyfok <https://github.com/anthonyfok>`__,
-`HactarCE <https://github.com/HactarCE>`__,
-`tblancher <https://github.com/tblancher>`__,
+`Elliria <https://github.com/Elliria>`__,
+`bjohas <https://github.com/bjohas>`__,
+`theRoadLessOrdinary <https://github.com/theRoadLessOrdinary>`__,
+`elecelias-ux <https://github.com/elecelias-ux>`__,
 `sporkwitch <https://github.com/sporkwitch>`__,
-`Cyb10101 <https://github.com/Cyb10101>`__,
-`denis-roy <https://github.com/denis-roy>`__,
-`HyperHamster <https://github.com/HyperHamster>`__,
-`jspaetzel <https://github.com/jspaetzel>`__,
-`kjs3 <https://github.com/kjs3>`__,
-`ldorigo <https://github.com/ldorigo>`__,
-`mikesmitty <https://github.com/mikesmitty>`__,
+`userdocs <https://github.com/userdocs>`__,
 `founderio <https://github.com/founderio>`__,
-`pedropenna <https://github.com/pedropenna>`__,
-`raags <https://github.com/raags>`__,
-`keremispirli <https://github.com/keremispirli>`__,
+thaelim,
+`anthonyfok <https://github.com/anthonyfok>`__,
+`RawNuke <https://github.com/RawNuke>`__,
+`xpusostomos <https://github.com/xpusostomos>`__,
+`josephj11 <https://github.com/josephj11>`__,
+`ayouknowwho <https://github.com/ayouknowwho>`__,
+`mt211211 <https://github.com/mt211211>`__,
+Luke Faraone,
+`HactarCE <https://github.com/HactarCE>`__,
 `trxcllnt <https://github.com/trxcllnt>`__,
+`Goldloli <https://github.com/Goldloli>`__,
+`tblancher <https://github.com/tblancher>`__,
+`ilostmyhandle <https://github.com/ilostmyhandle>`__,
+`tatianajrogel <https://github.com/tatianajrogel>`__,
+`dogweather <https://github.com/dogweather>`__,
+`awen11123 <https://github.com/awen11123>`__,
+`lxx197818 <https://github.com/lxx197818>`__,
+`wohanley <https://github.com/wohanley>`__,
+`keeltrace <https://github.com/keeltrace>`__,
+`jspaetzel <https://github.com/jspaetzel>`__,
+`NotAFlightRisk <https://github.com/NotAFlightRisk>`__,
+`mikkovedru <https://github.com/mikkovedru>`__,
+`raags <https://github.com/raags>`__,
+`mikesmitty <https://github.com/mikesmitty>`__,
+`kianmeng <https://github.com/kianmeng>`__,
+`K0Stek122 <https://github.com/K0Stek122>`__,
+`AmSach <https://github.com/AmSach>`__,
+`SpookedByRoaches <https://github.com/SpookedByRoaches>`__,
+`gharris1727 <https://github.com/gharris1727>`__,
+`HyperHamster <https://github.com/HyperHamster>`__,
+`keremispirli <https://github.com/keremispirli>`__,
+`nevarek <https://github.com/nevarek>`__,
 `vinnyA3 <https://github.com/vinnyA3>`__,
-and `chrislee35 <https://github.com/chrislee35>`__.
+`denis-roy <https://github.com/denis-roy>`__,
+`kjs3 <https://github.com/kjs3>`__,
+`pedropenna <https://github.com/pedropenna>`__,
+`muhammadbinriaz <https://github.com/muhammadbinriaz>`__,
+`ldorigo <https://github.com/ldorigo>`__ and
+`Cyb10101 <https://github.com/Cyb10101>`__.
 
 Testers
 -------
@@ -70,6 +97,9 @@ distribution we had not tried, wrote down exactly what happened, and came back
 to retest the fix. Wayland support in particular depended on people trying it
 on real machines. In the early days, the Ubuntu forums community gave Sam the
 feedback that shaped the program.
+
+Beta testers: `MurzNN <https://github.com/MurzNN>`__ and
+`ayouknowwho <https://github.com/ayouknowwho>`__.
 
 Artwork and inspiration
 -----------------------
