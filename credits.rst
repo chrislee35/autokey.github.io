@@ -18,20 +18,34 @@ and keep AutoKey working as desktops change:
 Founders
 --------
 
-AutoKey was created by Sam Peterson (`peabody17 <https://github.com/peabody17>`__),
-who was generous enough to let others join the project and take it forward.
+AutoKey was written by Chris Dekter (cdekter), starting from a small
+proof-of-concept program by Sam Peterson (`peabody17 <https://github.com/peabody17>`__).
+Sam was generous enough to let Chris join the project and take it forward.
 Thank you also to Eddie Bell, whose keylogger example gave Sam the way to
 monitor keyboard input, and to the authors of Textpander, Texter and AutoHotkey,
 whose software inspired AutoKey.
+
+The Python 2 era
+----------------
+
+AutoKey began as a Python 2 program, and Chris Dekter wrote most of it between
+2008 and 2012, before the project moved to GitHub. Thank you to the people who
+sent code to AutoKey in those years: Chris himself, and Luke Faraone and thaelim.
+Their work is still the base of the program that you run today. The
+Python 3 port that followed came from the people in the sections below.
 
 Wayland support
 ---------------
 
 For years AutoKey worked only in an X11 session, and many people asked for
-Wayland support. It exists today largely because of **David King**
-(`dlk3 <https://github.com/dlk3>`__).
+Wayland support. It exists today because of two people.
 
-In November 2024 David started a fork of AutoKey to add support for GNOME on
+**Sam Sebastian** (`sebastiansam55 <https://github.com/sebastiansam55>`__) did
+the original port to Wayland. He wrote the first ``uinput`` keyboard module and
+a GNOME Shell extension for listing windows, which AutoKey still uses.
+
+**David King** (`dlk3 <https://github.com/dlk3>`__) built on Sam's work. In
+November 2024 David started a fork of AutoKey to add support for GNOME on
 Wayland, and in January 2025 he moved that work to its own repository,
 ``autokey-wayland``. He wrote the new way of sending and reading keyboard and
 mouse input through the kernel's ``uinput`` device, which is what AutoKey uses
@@ -40,10 +54,6 @@ up. If you use AutoKey on Wayland, you are using his work. Thank you, David.
 
 Others built on that foundation:
 
-- `sebastiansam55 <https://github.com/sebastiansam55>`__ wrote the earlier
-  groundwork for Wayland: a ``uinput`` keyboard module, and a GNOME Shell
-  extension for listing windows that AutoKey still uses. He also contributed to
-  the ``uinput`` code that David developed.
 - `chrislee35 <https://github.com/chrislee35>`__ and
   `keeltrace <https://github.com/keeltrace>`__ added support for KDE Plasma.
 - The AutoKey GNOME Shell extension is based on
@@ -54,12 +64,11 @@ Contributors
 
 Thank you to everyone who has sent code, documentation, bug reports and
 fixes to AutoKey. They are listed with the largest amount of code contributed
-first. People from before AutoKey moved to GitHub are listed without links.
+first. People from the Python 2 era are in their own section above.
 The code count comes from the `autokey/autokey <https://github.com/autokey/autokey>`__
 history; it does not measure review, testing, documentation, or support, which
 matter just as much.
 
-cdekter,
 `sebastiansam55 <https://github.com/sebastiansam55>`__,
 `troxor <https://github.com/troxor>`__,
 `BlueDrink9 <https://github.com/BlueDrink9>`__,
@@ -74,14 +83,12 @@ cdekter,
 `sporkwitch <https://github.com/sporkwitch>`__,
 `userdocs <https://github.com/userdocs>`__,
 `founderio <https://github.com/founderio>`__,
-thaelim,
 `anthonyfok <https://github.com/anthonyfok>`__,
 `RawNuke <https://github.com/RawNuke>`__,
 `xpusostomos <https://github.com/xpusostomos>`__,
 `josephj11 <https://github.com/josephj11>`__,
 `ayouknowwho <https://github.com/ayouknowwho>`__,
 `mt211211 <https://github.com/mt211211>`__,
-Luke Faraone,
 `HactarCE <https://github.com/HactarCE>`__,
 `trxcllnt <https://github.com/trxcllnt>`__,
 `Goldloli <https://github.com/Goldloli>`__,
