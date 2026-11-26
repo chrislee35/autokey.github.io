@@ -49,7 +49,12 @@ Wayland support
 ---------------
 
 For years AutoKey worked only in an X11 session, and many people asked for
-Wayland support. It exists today because of two people.
+Wayland support. It was built over several years, by several people.
+
+**BlueDrink9** (`BlueDrink9 <https://github.com/BlueDrink9>`__), the main
+developer of AutoKey for several years, restructured the backend in 2021 so that
+AutoKey could support more than one display system. The GNOME and KDE Wayland
+support is built on the interfaces he introduced.
 
 **Sam Sebastian** (`sebastiansam55 <https://github.com/sebastiansam55>`__) did
 the original port to Wayland. He wrote the first ``uinput`` keyboard module and
@@ -150,7 +155,7 @@ Artwork and inspiration
 - The idea of changing the keyboard map on the fly to type unmapped characters
   comes from `xdotool <https://github.com/jordansissel/xdotool>`__.
 - The layout of the configuration window was inspired by Phrase Express.
-- Thank you to everyone who has donated to the project.
+- Thank you to everyone who has contributed to the project.
 
 Software AutoKey is built on
 ----------------------------
