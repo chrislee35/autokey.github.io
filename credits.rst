@@ -31,8 +31,19 @@ The Python 2 era
 AutoKey began as a Python 2 program, and Chris Dekter wrote most of it between
 2008 and 2012, before the project moved to GitHub. Thank you to the people who
 sent code to AutoKey in those years: Chris himself, and Luke Faraone and thaelim.
-Their work is still the base of the program that you run today. The
-Python 3 port that followed came from the people in the sections below.
+Their work is still the base of the program that you run today.
+
+The Python 3 port
+-----------------
+
+**guoci** (`guoci <https://github.com/guoci>`__) ported AutoKey to Python 3 in
+January 2014, and that port is the AutoKey that you use today. He kept working
+on it until August 2016. He did this on his own, without telling the AutoKey
+community that his version existed. The community learned about it gradually,
+from rumors and references. By then he was gone, and the project had no active
+developers, so the community moved over to his version. It was also the right
+move: without his work, AutoKey would have been left behind on Python 2. Thank
+you, guoci.
 
 Wayland support
 ---------------
@@ -54,8 +65,7 @@ up. If you use AutoKey on Wayland, you are using his work. Thank you, David.
 
 Others built on that foundation:
 
-- `chrislee35 <https://github.com/chrislee35>`__ and
-  `keeltrace <https://github.com/keeltrace>`__ added support for KDE Plasma.
+- `chrislee35 <https://github.com/chrislee35>`__ added support for KDE Plasma.
 - The AutoKey GNOME Shell extension is based on
   `window-calls <https://github.com/ickyicky/window-calls>`__ by ickyicky.
 
